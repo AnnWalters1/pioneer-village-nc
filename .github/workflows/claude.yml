@@ -21,6 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: anthropics/claude-code-action@v1
         with:
@@ -38,6 +39,7 @@ jobs:
             echo "Found branch: $BRANCH"
             git config user.email "action@github.com"
             git config user.name "GitHub Action"
+            git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
             git checkout main
             git pull origin main
             git merge --squash "origin/$BRANCH" --allow-unrelated-histories
