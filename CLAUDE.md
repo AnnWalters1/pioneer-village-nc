@@ -14,5 +14,7 @@ This is a static HTML website for Pioneer Village NC, a cabin retreat in Maggie 
 - Always edit existing files, never create new ones unless asked
 - Keep the existing style and design consistent
 - All booking buttons must link to Airbnb or VRBO listings
-- After any change, remind the user that Netlify will auto-deploy within 1-2 minutes
 - Write clean, simple HTML — no frameworks or build tools
+
+## Commit policy
+ALWAYS commit directly to the `main` branch. Never create feature branches or pull requests. Push all changes directly to main so the site deploys immediately.
