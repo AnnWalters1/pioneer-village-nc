@@ -25,12 +25,20 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: "--model claude-haiku-4-5-20251001 --max-turns 10"
 
-      - name: Auto-merge Claude's PR
+      - name: Auto-merge Claude's branch
         if: success()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Find open PR from Claude, create one if it doesn't exist
           PR=$(gh pr list --state open --limit 1 --json number -q '.[0].number')
+          if [ -z "$PR" ]; then
+            BRANCH=$(git branch -r | grep 'claude/' | sed 's|origin/||' | head -1 | xargs)
+            if [ -n "$BRANCH" ]; then
+              gh pr create --base main --head "$BRANCH" --title "Website update" --body "Automated update via Pioneer Village dashboard." 2>/dev/null || true
+              PR=$(gh pr list --state open --limit 1 --json number -q '.[0].number')
+            fi
+          fi
           if [ -n "$PR" ]; then
             gh pr merge "$PR" --squash --delete-branch --yes
           fi
