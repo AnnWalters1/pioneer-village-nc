@@ -1,20 +1,17 @@
-# Pioneer Village NC — Website
+# Pioneer Village NC
 
-This is a static HTML website for Pioneer Village NC, a cabin retreat in Maggie Valley, North Carolina.
+Static HTML cabin rental website in Maggie Valley, NC.
 
-## Pages
-- `index.html` — Home page
-- `our-cabins.html` — Cabin listings with Airbnb + VRBO booking buttons
-- `about-us.html` — About page
-- `events.html` — Events and local happenings
+## Files
+- `index.html` — Home
+- `our-cabins.html` — Cabins (Airbnb + VRBO buttons)
+- `about-us.html` — About
+- `events.html` — Events
 - `whats-local.html` — Local attractions
 - `styles.css` — All styling
 
-## Important rules
-- Always edit existing files, never create new ones unless asked
-- Keep the existing style and design consistent
-- All booking buttons must link to Airbnb or VRBO listings
-- Write clean, simple HTML — no frameworks or build tools
-
-## Commit policy
-ALWAYS commit directly to the `main` branch. Never create feature branches or pull requests. Push all changes directly to main so the site deploys immediately.
+## Rules
+- Edit existing files only
+- Keep style consistent
+- Preserve all booking buttons and tracking scripts
+- Commit directly to `main` — no branches or PRs
