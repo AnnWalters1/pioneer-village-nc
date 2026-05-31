@@ -19,7 +19,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: "--model claude-haiku-4-5-20251001 --max-turns 5"
+
+      - name: Auto-merge Claude's PR
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR=$(gh pr list --state open --limit 1 --json number -q '.[0].number')
+          if [ -n "$PR" ]; then
+            gh pr merge "$PR" --squash --delete-branch --yes
+          fi
