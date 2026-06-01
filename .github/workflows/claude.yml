@@ -32,20 +32,22 @@ jobs:
         if: success()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
           git fetch origin
-          BRANCH=$(git branch -r | grep 'origin/claude/' | sed 's|.*origin/||' | head -1 | xargs)
+          # Find branch for THIS specific issue
+          BRANCH=$(git branch -r | grep "origin/claude/issue-${ISSUE_NUMBER}-" | sed 's|.*origin/||' | head -1 | xargs)
           if [ -n "$BRANCH" ]; then
-            echo "Found branch: $BRANCH"
+            echo "Merging branch: $BRANCH"
             git config user.email "action@github.com"
             git config user.name "GitHub Action"
             git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
             git checkout main
             git pull origin main
-            git merge --squash "origin/$BRANCH" --allow-unrelated-histories
+            git merge --squash -X theirs "origin/$BRANCH"
             git commit -m "Apply website changes from dashboard request" || echo "Nothing to commit"
             git push origin main
             git push origin --delete "$BRANCH" || true
           else
-            echo "No Claude branch found"
+            echo "No branch found for issue #${ISSUE_NUMBER}"
           fi
