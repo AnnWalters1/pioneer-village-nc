@@ -691,6 +691,11 @@
       el.addEventListener('click', function() {
         if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
         if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
+
+        var card = el.closest('.cabin-full-card');
+        var cabin = card ? (card.querySelector('h3') || {}).textContent || 'Unknown' : 'Unknown';
+        var platform = el.href.indexOf('airbnb.com') !== -1 ? 'airbnb' : 'vrbo';
+        if (typeof gtag === 'function') gtag('event', 'booking_click', { cabin: cabin, platform: platform });
       });
     });
   </script>
