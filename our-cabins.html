@@ -172,11 +172,23 @@
       color: var(--text-light);
       grid-column: 1 / -1;
     }
+    /* Center last-row cabins */
+    .cabins-page-grid {
+      display: flex !important;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .cabins-page-grid .cabin-full-card {
+      flex: 0 1 calc(33.333% - 19px);
+      min-width: 260px;
+    }
+
     @media (max-width: 768px) {
       .filter-toggle-row { padding: 12px 20px; }
       .filter-bar.open { max-height: 400px; padding: 18px 20px; }
       .filter-bar-inner { gap: 14px; }
       .filter-divider { display: none; }
+      .cabins-page-grid .cabin-full-card { flex: 0 1 100%; }
     }
   </style>
 </head>
@@ -285,11 +297,11 @@
   <!-- CABIN GRID -->
   <section style="padding: 0 40px 100px; background: var(--warm-white);">
     <div style="max-width:1200px;margin:0 auto;">
-      <div class="cabin-cards-grid cabins-page-grid" id="cabin-grid" style="grid-template-columns: repeat(3, 1fr); padding-top: 48px;">
+      <div class="cabin-cards-grid cabins-page-grid" id="cabin-grid" style="padding-top: 48px;">
 
         <!-- Cabin 1 -->
         <div class="cabin-full-card" data-view="mountain" data-beds="1" data-guests="2" data-pet="true">
-          <img class="cabin-full-card-img" src="https://img1.wsimg.com/isteam/ip/b1d85c42-417b-4160-b510-30c57cd1ad48/Cabin_209.JPG/:/rs=w:370,cg:true,m" alt="Cabin 1 at Pioneer Village" loading="lazy" />
+          <img class="cabin-full-card-img" src="cabin1.jpg" alt="Cabin 1 at Pioneer Village" loading="lazy" />
           <div class="cabin-full-card-body">
             <h3>Cabin 1</h3>
             <div class="cabin-beds">1 Bed · 1 Bath · 2 Guests</div>
@@ -301,7 +313,7 @@
               <li>AC</li>
             </ul>
             <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2904732?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
+              <a href="https://www.vrbo.com/2904732" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
               <a href="https://www.airbnb.com/rooms/1152135851962200961" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
             </div>
           </div>
@@ -309,7 +321,7 @@
 
         <!-- Cabin 2 -->
         <div class="cabin-full-card" data-view="creek" data-beds="1" data-guests="2" data-pet="false">
-          <img class="cabin-full-card-img" src="https://img1.wsimg.com/isteam/ip/b1d85c42-417b-4160-b510-30c57cd1ad48/cabin_205_20mountins_20pic.JPG/:/rs=w:370,cg:true,m" alt="Cabin 2 at Pioneer Village" loading="lazy" />
+          <img class="cabin-full-card-img" src="cabin2.jpg" alt="Cabin 2 at Pioneer Village" loading="lazy" />
           <div class="cabin-full-card-body">
             <h3>Cabin 2</h3>
             <div class="cabin-beds">1 Bed · 1 Bath · 2 Guests</div>
@@ -328,7 +340,7 @@
 
         <!-- Cabin 3 -->
         <div class="cabin-full-card" data-view="creek" data-beds="1" data-guests="6" data-pet="false">
-          <img class="cabin-full-card-img" src="https://img1.wsimg.com/isteam/ip/b1d85c42-417b-4160-b510-30c57cd1ad48/cabin_2012_20from_20website.JPG/:/rs=w:370,cg:true,m" alt="Cabin 3 at Pioneer Village" loading="lazy" />
+          <img class="cabin-full-card-img" src="cabin3.jpg" alt="Cabin 3 at Pioneer Village" loading="lazy" />
           <div class="cabin-full-card-body">
             <h3>Cabin 3</h3>
             <div class="cabin-beds">1 Bed · 1 Bath · 6 Guests</div>
@@ -347,7 +359,7 @@
 
         <!-- Cabin 4 -->
         <div class="cabin-full-card" data-view="mountain" data-beds="2" data-guests="4" data-pet="false">
-          <img class="cabin-full-card-img" src="https://img1.wsimg.com/isteam/ip/b1d85c42-417b-4160-b510-30c57cd1ad48/IMG_8444.JPG/:/rs=w:370,cg:true,m" alt="Cabin 4 at Pioneer Village" loading="lazy" />
+          <img class="cabin-full-card-img" src="cabin4.jpg" alt="Cabin 4 at Pioneer Village" loading="lazy" style="object-position: center top;" />
           <div class="cabin-full-card-body">
             <h3>Cabin 4</h3>
             <div class="cabin-beds">2 Bed · 1 Bath · 4 Guests</div>
@@ -399,13 +411,16 @@
               <li>AC</li>
               <li>Self check-in</li>
             </ul>
-            <a href="https://www.airbnb.com/rooms/1635595248610358838" class="btn btn-airbnb" style="width:100%;text-align:center;" target="_blank" rel="noopener">Book on Airbnb</a>
+            <div class="booking-buttons">
+              <a href="https://www.vrbo.com/5141654" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
+              <a href="https://www.airbnb.com/rooms/1635595248610358838" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
+            </div>
           </div>
         </div>
 
         <!-- Cabin 8 — Cozy Mountain View Studio -->
         <div class="cabin-full-card" data-view="mountain" data-beds="1" data-guests="2" data-pet="false">
-          <img class="cabin-full-card-img" src="122.avif" alt="Cabin 8 — Cozy Mountain View Studio at Pioneer Village" loading="lazy" />
+          <img class="cabin-full-card-img" src="cabin8.jpg" alt="Cabin 8 at Pioneer Village" loading="lazy" />
           <div class="cabin-full-card-body">
             <h3>Cabin 8</h3>
             <div class="cabin-beds">1 Bed · 1 Bath · 2 Guests</div>
@@ -419,7 +434,10 @@
               <li>Near Blue Ridge Pkwy</li>
               <li>Self check-in</li>
             </ul>
-            <a href="https://www.airbnb.com/rooms/1635602696168609390" class="btn btn-airbnb" style="width:100%;text-align:center;" target="_blank" rel="noopener">Book on Airbnb</a>
+            <div class="booking-buttons">
+              <a href="https://www.vrbo.com/3019823" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
+              <a href="https://www.airbnb.com/rooms/1635602696168609390" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
+            </div>
           </div>
         </div>
 
@@ -445,7 +463,7 @@
 
         <!-- Cabin 10 -->
         <div class="cabin-full-card" data-view="mountain" data-beds="2" data-guests="6" data-pet="false">
-          <img class="cabin-full-card-img" src="https://img1.wsimg.com/isteam/ip/b1d85c42-417b-4160-b510-30c57cd1ad48/IMG_8447.JPG/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:370,cg:true" alt="Cabin 10 at Pioneer Village" loading="lazy" />
+          <img class="cabin-full-card-img" src="cabin10.jpg" alt="Cabin 10 at Pioneer Village" loading="lazy" />
           <div class="cabin-full-card-body">
             <h3>Cabin 10</h3>
             <div class="cabin-beds">2 Bed · 1 Bath · 6 Guests</div>
@@ -464,7 +482,7 @@
 
         <!-- Cabin 11 -->
         <div class="cabin-full-card" data-view="mountain" data-beds="2" data-guests="6" data-pet="false">
-          <img class="cabin-full-card-img" src="https://img1.wsimg.com/isteam/ip/b1d85c42-417b-4160-b510-30c57cd1ad48/20220830_133511.JPG/:/rs=w:370,cg:true,m" alt="Cabin 11 at Pioneer Village" loading="lazy" />
+          <img class="cabin-full-card-img" src="cabin11.jpg" alt="Cabin 11 at Pioneer Village" loading="lazy" />
           <div class="cabin-full-card-body">
             <h3>Cabin 11</h3>
             <div class="cabin-beds">2 Bed · 1 Bath · 6 Guests</div>
@@ -481,38 +499,22 @@
           </div>
         </div>
 
-        <!-- Cabin 12 -->
-        <div class="cabin-full-card" data-view="creek" data-beds="4" data-guests="8" data-pet="false">
-          <img class="cabin-full-card-img" src="https://img1.wsimg.com/isteam/ip/b1d85c42-417b-4160-b510-30c57cd1ad48/pv.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:370,cg:true" alt="Cabin 12 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 12</h3>
-            <div class="cabin-beds">4 Bed · 3.5 Bath · 8 Guests</div>
-            <ul class="cabin-features">
-              <li>Creek side</li>
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Private porch</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2961092?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1278899360635891711" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
         <!-- Cabin 14 -->
-        <div class="cabin-full-card" data-view="mountain" data-beds="2" data-guests="8" data-pet="false">
-          <img class="cabin-full-card-img" src="https://img1.wsimg.com/isteam/ip/b1d85c42-417b-4160-b510-30c57cd1ad48/PV_20in_20the_20fall.JPG/:/rs=w:370,cg:true,m" alt="Cabin 14 at Pioneer Village" loading="lazy" />
+        <div class="cabin-full-card" data-view="mountain" data-beds="4" data-guests="8" data-pet="false">
+          <img class="cabin-full-card-img" src="cabin14.jpg" alt="Cabin 14 at Pioneer Village" loading="lazy" />
           <div class="cabin-full-card-body">
             <h3>Cabin 14</h3>
-            <div class="cabin-beds">2 Bed · 1 Bath · 8 Guests</div>
+            <div class="cabin-beds">4 Bed · 3.5 Bath · 8 Guests</div>
             <ul class="cabin-features">
               <li>Stone fireplace</li>
               <li>Full kitchen</li>
               <li>Private porch</li>
               <li>Fall foliage views</li>
             </ul>
-            <a href="https://www.vrbo.com/2961578?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" style="width:100%;text-align:center;" target="_blank" rel="noopener">Book on Vrbo</a>
+            <div class="booking-buttons">
+              <a href="https://www.vrbo.com/2961578?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
+              <a href="https://www.airbnb.com/rooms/1278899360635891711" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
+            </div>
           </div>
         </div>
 
