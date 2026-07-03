@@ -6,7 +6,10 @@
       "WebFetch(domain:www.yelp.com)",
       "WebFetch(domain:www.tripadvisor.com)",
       "Bash(find /Users/cairo/Downloads -name \"*.html\" -maxdepth 3 2>/dev/null | head -20)",
-      "Read(//Users/cairo/Downloads/**)"
+      "Read(//Users/cairo/Downloads/**)",
+      "Bash(zip -j ../dashboard-deploy.zip dashboard.html)",
+      "Bash(python3 fetch.py)",
+      "Bash(python3 -c \"import dotenv; print\\('dotenv ok'\\)\")"
     ]
   }
 }
