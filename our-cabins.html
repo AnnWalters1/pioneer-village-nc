@@ -8,7 +8,6 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Pioneer Village NC" />
   <meta property="og:url" content="https://pioneervillagenc.com/our-cabins.html" />
@@ -41,666 +40,472 @@
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1702725637740990&ev=PageView&noscript=1"/></noscript>
-  <style>
-    /* ---- Filter toggle row ---- */
-    .filter-toggle-row {
-      background: var(--warm-white);
-      border-bottom: 1px solid var(--stone);
-      padding: 14px 40px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .filter-toggle-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-family: 'Lato', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-mid);
-      background: #fff;
-      border: 1.5px solid var(--stone);
-      border-radius: 99px;
-      padding: 7px 18px;
-      cursor: pointer;
-      transition: border-color 0.18s, color 0.18s;
-      letter-spacing: 0.03em;
-    }
-    .filter-toggle-btn:hover { border-color: var(--gold); color: var(--gold); }
-    .filter-toggle-btn.open  { border-color: var(--gold); color: var(--gold); }
-    .filter-toggle-btn.has-active { border-color: var(--gold); }
-    .filter-count-badge {
-      display: none;
-      background: var(--gold);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      border-radius: 99px;
-      padding: 1px 7px;
-      line-height: 1.5;
-    }
-    .filter-caret {
-      font-size: 11px;
-      transition: transform 0.2s;
-      display: inline-block;
-    }
-    .filter-toggle-btn.open .filter-caret { transform: rotate(180deg); }
-    .filter-clear-all-btn {
-      background: none;
-      border: none;
-      font-family: 'Lato', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--gold);
-      cursor: pointer;
-      padding: 0;
-      display: none;
-      text-decoration: underline;
-    }
-    .filter-results-label {
-      margin-left: auto;
-      font-family: 'Lato', sans-serif;
-      font-size: 13px;
-      color: var(--text-light);
-    }
 
-    /* ---- Filter panel (hidden by default) ---- */
-    .filter-bar {
-      background: var(--cream);
-      border-bottom: 1px solid var(--stone);
-      padding: 0 40px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-    }
-    .filter-bar.open {
-      max-height: 240px;
-      padding: 22px 40px;
-    }
-    .filter-bar-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      align-items: center;
-    }
-    .filter-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .filter-group-label {
-      font-family: 'Lato', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-light);
-      white-space: nowrap;
-    }
-    .filter-pill {
-      font-family: 'Lato', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-mid);
-      background: #fff;
-      border: 1.5px solid var(--stone);
-      border-radius: 99px;
-      padding: 6px 16px;
-      cursor: pointer;
-      transition: all 0.18s;
-      white-space: nowrap;
-      letter-spacing: 0.02em;
-    }
-    .filter-pill:hover  { border-color: var(--gold); color: var(--gold); }
-    .filter-pill.active { background: var(--gold); border-color: var(--gold); color: #fff; }
-    .filter-divider {
-      width: 1px;
-      height: 28px;
-      background: var(--stone);
-      flex-shrink: 0;
-    }
-    .filter-no-results {
-      display: none;
-      text-align: center;
-      padding: 60px 20px;
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      color: var(--text-light);
-      grid-column: 1 / -1;
-    }
-    /* Center last-row cabins */
-    .cabins-page-grid {
-      display: flex !important;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .cabins-page-grid .cabin-full-card {
-      flex: 0 1 calc(33.333% - 19px);
-      min-width: 260px;
-    }
-
-    @media (max-width: 768px) {
-      .filter-toggle-row { padding: 12px 20px; }
-      .filter-bar.open { max-height: 400px; padding: 18px 20px; }
-      .filter-bar-inner { gap: 14px; }
-      .filter-divider { display: none; }
-      .cabins-page-grid .cabin-full-card { flex: 0 1 100%; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">Pioneer Village</span>
-      <span class="nav-logo-sub">Maggie Valley, NC</span>
-    </a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
+<body class="font-body">
+<div class="noise-overlay"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 mt-4">
+    <div id="nav-pill" class="flex items-center justify-between rounded-full px-5 sm:px-6 py-3 transition-all duration-300">
+      <a href="index.html" class="flex items-baseline gap-2">
+        <span class="font-display font-bold text-lg tracking-tight" id="nav-brand">Pioneer Village</span>
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em]" id="nav-brand-sub">Maggie Valley, NC</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8 font-medium text-sm" id="nav-links">
+        <a href="index.html" class="lift-on-hover">Home</a>
+        <a href="our-cabins.html" class="lift-on-hover text-primary-dark font-semibold">Our Cabins</a>
+        <a href="whats-local.html" class="lift-on-hover">What's Local</a>
+        <a href="about-us.html" class="lift-on-hover">About Us</a>
+      </div>
+      <a href="#cabin-grid" class="hidden lg:inline-flex magnetic-btn items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-primary/30">
+        Book Now
+      </a>
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="w-6 h-0.5 bg-current"></span>
+        <span class="w-6 h-0.5 bg-current"></span>
+        <span class="w-6 h-0.5 bg-current"></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden mx-5 mt-2 rounded-3xl glass-dark text-white p-6 flex flex-col gap-5 font-medium">
+    <a href="index.html">Home</a>
+    <a href="our-cabins.html" class="text-primary-light">Our Cabins</a>
+    <a href="whats-local.html">What's Local</a>
+    <a href="about-us.html">About Us</a>
+    <a href="#cabin-grid" class="magnetic-btn inline-flex justify-center items-center gap-2 bg-primary text-white px-5 py-3 rounded-full font-semibold text-sm">Book Now</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="relative h-[56vh] min-h-[420px] flex items-end overflow-hidden">
+  <img src="pv-main.jpg" alt="Pioneer Village cabins" class="absolute inset-0 w-full h-full object-cover brightness-[0.35]" />
+  <div class="absolute inset-0 bg-gradient-to-b from-deep/70 via-deep/40 to-deep/90"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-16 w-full">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-light mb-4">Our Cabins</p>
+    <h1 class="page-hero-title font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tighter max-w-3xl">14 Cabins. <span class="font-serif italic font-medium text-primary-light">One Beautiful Valley.</span></h1>
+    <p class="mt-5 text-white/70 max-w-xl text-base sm:text-lg">Every cabin is different. Every stay is yours.</p>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="py-16 sm:py-20 bg-background">
+  <div class="max-w-3xl mx-auto px-6 text-center reveal">
+    <p class="font-display text-2xl sm:text-3xl font-semibold text-ink mb-4">14 individually unique cabins, each with its own character.</p>
+    <p class="text-muted leading-relaxed">Some sit creekside with the sound of water outside your window. Others sit higher up with mountain views that stop you in your tracks. All of them come with stone fireplaces, full kitchens, private porches, and the kind of quiet that's hard to find anywhere else.</p>
+    <div class="mt-6 inline-flex items-center gap-2 bg-primary/10 text-primary-dark text-sm font-medium px-4 py-2 rounded-full">
+      <i data-lucide="hammer" class="h-4 w-4"></i> Cabin 7 is currently under renovation and will be available soon.
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILTER BAR ============ -->
+<section class="sticky top-[76px] z-30 bg-surface/95 backdrop-blur border-y border-divider">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-4 flex flex-wrap items-center gap-4">
+    <button id="filter-toggle" class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] border border-divider rounded-full px-4 py-2 lift-on-hover">
+      <i data-lucide="sliders-horizontal" class="h-3.5 w-3.5"></i> Filters
+      <span id="filter-count" class="hidden bg-primary text-white rounded-full text-[10px] px-2 py-0.5"></span>
     </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="our-cabins.html" class="active">Our Cabins</a></li>
-      <li><a href="whats-local.html">What's Local</a></li>
-      <li><a href="about-us.html">About Us</a></li>
-      <li>
-        <a href="our-cabins.html#cabin-grid" class="nav-book-btn">Book Now</a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('pv-main.jpg');"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <p class="section-label">Our Cabins</p>
-      <h1>14 Cabins. One Beautiful Valley.</h1>
-      <p>Every cabin is different. Every stay is yours.</p>
+    <button id="filter-clear-all" class="hidden text-xs font-semibold text-primary-dark underline">Clear all</button>
+    <span id="filter-results-label" class="ml-auto text-sm text-muted"></span>
+  </div>
+  <div id="filter-panel" class="hidden max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-5 flex flex-wrap gap-6">
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-muted mr-1">View</span>
+      <button class="filter-pill active border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="view" data-value="all">All</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="view" data-value="mountain">Mountain View</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="view" data-value="creek">Creek View</button>
     </div>
-  </section>
-
-  <!-- INTRO TEXT -->
-  <div class="section-intro">
-    <div class="section-intro-ornament"><span></span></div>
-    <p class="section-intro-lead">14 individually unique cabins, each with its own character.</p>
-    <p class="section-intro-body">Some sit creekside with the sound of water outside your window. Others sit higher up with mountain views that stop you in your tracks. All of them come with stone fireplaces, full kitchens, private porches, and the kind of quiet that's hard to find anywhere else.</p>
-    <div class="section-intro-notice">🔨 &nbsp;Cabin 7 is currently under renovation and will be available soon.</div>
-  </div>
-
-  <!-- FILTER TOGGLE ROW -->
-  <div class="filter-toggle-row">
-    <button class="filter-toggle-btn" id="filter-toggle">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="1" y1="3.5" x2="13" y2="3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="3" y1="7"   x2="11" y2="7"   stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="5" y1="10.5" x2="9" y2="10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      Filters
-      <span class="filter-count-badge" id="filter-count"></span>
-      <span class="filter-caret">▾</span>
-    </button>
-    <button class="filter-clear-all-btn" id="filter-clear-all">Clear all</button>
-    <span class="filter-results-label" id="filter-results-label"></span>
-  </div>
-
-  <!-- FILTER PANEL (hidden until toggled) -->
-  <div class="filter-bar" id="filter-panel">
-    <div class="filter-bar-inner">
-
-      <div class="filter-group">
-        <span class="filter-group-label">View</span>
-        <button class="filter-pill active" data-group="view" data-value="all">All</button>
-        <button class="filter-pill" data-group="view" data-value="mountain">Mountain View</button>
-        <button class="filter-pill" data-group="view" data-value="creek">Creek View</button>
-      </div>
-
-      <div class="filter-divider"></div>
-
-      <div class="filter-group">
-        <span class="filter-group-label">Beds</span>
-        <button class="filter-pill active" data-group="beds" data-value="all">All</button>
-        <button class="filter-pill" data-group="beds" data-value="1">1 Bed</button>
-        <button class="filter-pill" data-group="beds" data-value="2">2 Beds</button>
-        <button class="filter-pill" data-group="beds" data-value="4">4 Beds</button>
-      </div>
-
-      <div class="filter-divider"></div>
-
-      <div class="filter-group">
-        <span class="filter-group-label">Guests</span>
-        <button class="filter-pill active" data-group="guests" data-value="all">All</button>
-        <button class="filter-pill" data-group="guests" data-value="2">2 Guests</button>
-        <button class="filter-pill" data-group="guests" data-value="4">4 Guests</button>
-        <button class="filter-pill" data-group="guests" data-value="6">6 Guests</button>
-        <button class="filter-pill" data-group="guests" data-value="8">8 Guests</button>
-      </div>
-
-      <div class="filter-divider"></div>
-
-      <div class="filter-group">
-        <span class="filter-group-label">Pet Friendly</span>
-        <button class="filter-pill active" data-group="pet" data-value="all">All</button>
-        <button class="filter-pill" data-group="pet" data-value="true">Pet Friendly</button>
-      </div>
-
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-muted mr-1">Beds</span>
+      <button class="filter-pill active border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="beds" data-value="all">All</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="beds" data-value="1">1 Bed</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="beds" data-value="2">2 Beds</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="beds" data-value="4">4 Beds</button>
+    </div>
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-muted mr-1">Guests</span>
+      <button class="filter-pill active border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="guests" data-value="all">All</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="guests" data-value="2">2</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="guests" data-value="4">4</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="guests" data-value="6">6</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="guests" data-value="8">8</button>
+    </div>
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-muted mr-1">Pet Friendly</span>
+      <button class="filter-pill active border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="pet" data-value="all">All</button>
+      <button class="filter-pill border border-divider rounded-full px-4 py-1.5 text-sm font-medium" data-group="pet" data-value="true">Pet Friendly</button>
     </div>
   </div>
+</section>
 
-  <!-- MEMORIAL DAY WEEKEND PROMO BANNER -->
+<!-- ============ CABIN GRID ============ -->
+<section class="py-16 sm:py-20 bg-background">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+    <div id="cabin-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-  <!-- CABIN GRID -->
-  <section style="padding: 0 40px 100px; background: var(--warm-white);">
-    <div style="max-width:1200px;margin:0 auto;">
-      <div class="cabin-cards-grid cabins-page-grid" id="cabin-grid" style="padding-top: 48px;">
-
-        <!-- Cabin 1 -->
-        <div class="cabin-full-card" data-view="mountain" data-beds="1" data-guests="2" data-pet="true">
-          <img class="cabin-full-card-img" src="cabin1.jpg" alt="Cabin 1 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 1</h3>
-            <div class="cabin-beds">1 Bed · 1 Bath · 2 Guests</div>
-            <ul class="cabin-features">
-              <li>Mountain view</li>
-              <li>Full kitchen</li>
-              <li>Washer/Dryer</li>
-              <li>Pet friendly</li>
-              <li>AC</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2904732" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1152135851962200961" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
+      <!-- Cabin 1 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="mountain" data-beds="1" data-guests="2" data-pet="true">
+        <img src="cabin1.jpg" alt="Cabin 1 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 1</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">1 Bed · 1 Bath · 2 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Mountain view</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Washer/Dryer</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Pet friendly</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">AC</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2904732" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1152135851962200961" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
           </div>
-        </div>
-
-        <!-- Cabin 2 -->
-        <div class="cabin-full-card" data-view="creek" data-beds="1" data-guests="2" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin2.jpg" alt="Cabin 2 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 2</h3>
-            <div class="cabin-beds">1 Bed · 1 Bath · 2 Guests</div>
-            <ul class="cabin-features">
-              <li>Campbell Creek view</li>
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Private porch</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2938634?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1152206124371967292" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 3 -->
-        <div class="cabin-full-card" data-view="creek" data-beds="2" data-guests="6" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin3.jpg" alt="Cabin 3 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 3</h3>
-            <div class="cabin-beds">2 Bed · 1 Bath · 6 Guests</div>
-            <ul class="cabin-features">
-              <li>Campbell Creek view</li>
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Mountain view</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2938767?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1152213620247911423" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 4 -->
-        <div class="cabin-full-card" data-view="mountain" data-beds="1" data-guests="4" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin4.jpg" alt="Cabin 4 at Pioneer Village" loading="lazy" style="object-position: center top;" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 4</h3>
-            <div class="cabin-beds">1 Bed · 1 Bath · 4 Guests</div>
-            <ul class="cabin-features">
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Private porch</li>
-              <li>Mountain view</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2938995?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1152797430532736375" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 5 -->
-        <div class="cabin-full-card" data-view="creek" data-beds="1" data-guests="2" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin5.jpg" alt="Cabin 5 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 5</h3>
-            <div class="cabin-beds">1 Bed · 1 Bath · 2 Guests</div>
-            <ul class="cabin-features">
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Private porch</li>
-              <li>Scenic views</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2942430?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1152821824696232144" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 6 — Creek Side Cozy Cabin -->
-        <div class="cabin-full-card" data-view="creek" data-beds="1" data-guests="2" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin6.jpg" alt="Cabin 6 — Creek Side Cozy Cabin at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 6</h3>
-            <div class="cabin-beds">1 Bed · 1 Bath · 2 Guests</div>
-            <ul class="cabin-features">
-              <li>Waterfront (mountain creek)</li>
-              <li>Indoor fireplace</li>
-              <li>Fire pit</li>
-              <li>Full kitchen</li>
-              <li>Bathtub</li>
-              <li>WiFi &amp; TV</li>
-              <li>AC</li>
-              <li>Self check-in</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/5141654" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1635595248610358838" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 8 — Cozy Mountain View Studio -->
-        <div class="cabin-full-card" data-view="mountain" data-beds="1" data-guests="2" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin8.jpg" alt="Cabin 8 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 8</h3>
-            <div class="cabin-beds">1 Bed · 1 Bath · 2 Guests</div>
-            <ul class="cabin-features">
-              <li>Mountain views</li>
-              <li>Indoor fireplace</li>
-              <li>Fire pit</li>
-              <li>Full kitchen</li>
-              <li>WiFi &amp; TV</li>
-              <li>AC</li>
-              <li>Near Blue Ridge Pkwy</li>
-              <li>Self check-in</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/3019823" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1635602696168609390" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 9 -->
-        <div class="cabin-full-card" data-view="creek" data-beds="2" data-guests="6" data-pet="true">
-          <img class="cabin-full-card-img" src="cabin9.jpg" alt="Cabin 9 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 9</h3>
-            <div class="cabin-beds">2 Bed · 1 Bath · 6 Guests</div>
-            <ul class="cabin-features">
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Private porch</li>
-              <li>Creek sounds</li>
-              <li>Pet friendly</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2960983?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1272428463439740499" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 10 -->
-        <div class="cabin-full-card" data-view="mountain" data-beds="2" data-guests="6" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin10.jpg" alt="Cabin 10 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 10</h3>
-            <div class="cabin-beds">2 Bed · 1 Bath · 6 Guests</div>
-            <ul class="cabin-features">
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Private porch</li>
-              <li>Mountain views</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2961008?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1274572557310854262" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 11 -->
-        <div class="cabin-full-card" data-view="mountain" data-beds="2" data-guests="6" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin11.jpg" alt="Cabin 11 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 11</h3>
-            <div class="cabin-beds">2 Bed · 1 Bath · 6 Guests</div>
-            <ul class="cabin-features">
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Outdoor space</li>
-              <li>Scenic views</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2961032?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1278350351027167165" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cabin 14 -->
-        <div class="cabin-full-card" data-view="mountain" data-beds="4" data-guests="8" data-pet="false">
-          <img class="cabin-full-card-img" src="cabin14.jpg" alt="Cabin 14 at Pioneer Village" loading="lazy" />
-          <div class="cabin-full-card-body">
-            <h3>Cabin 14</h3>
-            <div class="cabin-beds">4 Bed · 3.5 Bath · 8 Guests</div>
-            <ul class="cabin-features">
-              <li>Stone fireplace</li>
-              <li>Full kitchen</li>
-              <li>Private porch</li>
-              <li>Fall foliage views</li>
-            </ul>
-            <div class="booking-buttons">
-              <a href="https://www.vrbo.com/2961578?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" class="btn btn-vrbo" target="_blank" rel="noopener">Book on Vrbo</a>
-              <a href="https://www.airbnb.com/rooms/1278899360635891711" class="btn btn-airbnb" target="_blank" rel="noopener">Book on Airbnb</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- No-results message (shown by JS when filters match nothing) -->
-        <div class="filter-no-results" id="no-results">
-          No cabins match your filters. <a href="#" id="clear-filters" style="color:var(--gold);">Clear all filters →</a>
-        </div>
-
-      </div><!-- /grid -->
-    </div>
-  </section>
-
-  <!-- GROUP BOOKING SECTION -->
-  <section class="groups-section" id="groups">
-    <div class="groups-section-inner">
-      <p class="section-label" style="text-align:center;">Group Bookings</p>
-      <h2>Booking the Whole Village?</h2>
-      <p>Pioneer Village is perfect for family reunions, corporate retreats, wedding parties, and group getaways. With 14 cabins on one property, your whole group can be together — without being on top of each other. Reach out to discuss availability and group rates.</p>
-      <a href="about-us.html#contact" class="btn btn-gold">Contact Us About Groups</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">Pioneer Village</div>
-        <div class="footer-brand-sub">Maggie Valley, NC</div>
-        <p class="footer-brand-desc">14 rustic cabins nestled along Campbell Creek in the heart of the Smoky Mountains. Open year-round. Pet friendly. Group bookings welcome.</p>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="https://www.facebook.com/PioneerVlg/" class="footer-fb-link" target="_blank" rel="noopener">
-            <span class="footer-fb-icon">f</span>
-            Follow us on Facebook
-          </a>
-          <a href="https://www.instagram.com/pioneervillagenc/" class="footer-fb-link" target="_blank" rel="noopener">
-            <span class="footer-fb-icon">📷</span>
-            Follow us on Instagram
-          </a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="our-cabins.html">Our Cabins</a></li>
-          <li><a href="whats-local.html">What's Local</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="events.html">Area Events</a></li>
-          <li><a href="about-us.html#faq">FAQs</a></li>
-        </ul>
+
+      <!-- Cabin 2 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="creek" data-beds="1" data-guests="2" data-pet="false">
+        <img src="cabin2.jpg" alt="Cabin 2 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 2</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">1 Bed · 1 Bath · 2 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Campbell Creek view</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Stone fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Private porch</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2938634?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1152206124371967292" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Book</h4>
-        <ul>
-          <li><a href="our-cabins.html">Check Availability</a></li>
-          <li><a href="index.html#weekday">Weekday Deals</a></li>
-        </ul>
+
+      <!-- Cabin 3 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="creek" data-beds="2" data-guests="6" data-pet="false">
+        <img src="cabin3.jpg" alt="Cabin 3 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 3</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">2 Bed · 1 Bath · 6 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Campbell Creek view</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Stone fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Mountain view</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2938767?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1152213620247911423" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabin 4 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="mountain" data-beds="1" data-guests="4" data-pet="false">
+        <img src="cabin4.jpg" alt="Cabin 4 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" style="object-position:center top;" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 4</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">1 Bed · 1 Bath · 4 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Stone fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Private porch</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Mountain view</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2938995?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1152797430532736375" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabin 5 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="creek" data-beds="1" data-guests="2" data-pet="false">
+        <img src="cabin5.jpg" alt="Cabin 5 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 5</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">1 Bed · 1 Bath · 2 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Stone fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Private porch</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Scenic views</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2942430?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1152821824696232144" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabin 6 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="creek" data-beds="1" data-guests="2" data-pet="false">
+        <img src="cabin6.jpg" alt="Cabin 6 — Creek Side Cozy Cabin at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 6</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">1 Bed · 1 Bath · 2 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Waterfront</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Indoor fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Fire pit</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Bathtub</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Self check-in</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/5141654" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1635595248610358838" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabin 8 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="mountain" data-beds="1" data-guests="2" data-pet="false">
+        <img src="cabin8.jpg" alt="Cabin 8 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 8</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">1 Bed · 1 Bath · 2 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Mountain views</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Indoor fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Fire pit</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Near Blue Ridge Pkwy</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/3019823" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1635602696168609390" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabin 9 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="creek" data-beds="2" data-guests="6" data-pet="true">
+        <img src="cabin9.jpg" alt="Cabin 9 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 9</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">2 Bed · 1 Bath · 6 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Stone fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Creek sounds</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Pet friendly</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2960983?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1272428463439740499" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabin 10 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="mountain" data-beds="2" data-guests="6" data-pet="false">
+        <img src="cabin10.jpg" alt="Cabin 10 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 10</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">2 Bed · 1 Bath · 6 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Stone fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Private porch</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Mountain views</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2961008?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1274572557310854262" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabin 11 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="mountain" data-beds="2" data-guests="6" data-pet="false">
+        <img src="cabin11.jpg" alt="Cabin 11 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 11</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">2 Bed · 1 Bath · 6 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Stone fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Outdoor space</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Scenic views</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2961032?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1278350351027167165" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabin 14 -->
+      <div class="cabin-card bg-surface rounded-3xl overflow-hidden border border-divider lift-on-hover" data-view="mountain" data-beds="4" data-guests="8" data-pet="false">
+        <img src="cabin14.jpg" alt="Cabin 14 at Pioneer Village" loading="lazy" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold mb-1">Cabin 14</h3>
+          <div class="font-mono text-xs text-muted uppercase tracking-[0.08em] mb-3">4 Bed · 3.5 Bath · 8 Guests</div>
+          <ul class="flex flex-wrap gap-1.5 mb-5">
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Stone fireplace</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Full kitchen</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Private porch</li>
+            <li class="text-xs bg-primary/10 text-primary-dark px-2.5 py-1 rounded-full">Fall foliage views</li>
+          </ul>
+          <div class="flex gap-2">
+            <a href="https://www.vrbo.com/2961578?utm_source=website&utm_medium=referral&utm_campaign=direct_booking" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center border border-primary text-primary-dark px-3 py-2.5 rounded-full font-semibold text-sm">Vrbo</a>
+            <a href="https://www.airbnb.com/rooms/1278899360635891711" target="_blank" rel="noopener" class="magnetic-btn flex-1 text-center bg-deep text-white px-3 py-2.5 rounded-full font-semibold text-sm">Airbnb</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="no-results" class="hidden col-span-full text-center py-20 font-serif italic text-2xl text-muted">
+        No cabins match your filters. <a href="#" id="clear-filters" class="text-primary-dark not-italic font-semibold">Clear all filters →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GROUP BOOKINGS ============ -->
+<section class="py-24 sm:py-28 bg-deep grid-bg">
+  <div class="max-w-3xl mx-auto px-6 text-center reveal">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-light mb-4">Group Bookings</p>
+    <h2 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tighter mb-6">Booking the Whole Village?</h2>
+    <p class="text-white/60 leading-relaxed mb-8">Pioneer Village is perfect for family reunions, corporate retreats, wedding parties, and group getaways. With 14 cabins on one property, your whole group can be together — without being on top of each other.</p>
+    <a href="about-us.html#contact" class="magnetic-btn inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg shadow-primary/30">Contact Us About Groups</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-deep border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="lg:col-span-2">
+      <div class="font-display font-bold text-xl text-white mb-2">Pioneer Village</div>
+      <div class="font-mono text-xs uppercase tracking-[0.15em] text-primary-light mb-4">Maggie Valley, NC</div>
+      <p class="text-white/50 text-sm leading-relaxed max-w-sm mb-5">Fourteen rustic cabins nestled along Campbell Creek in the heart of the Smoky Mountains. Open year-round. Pet friendly. Group bookings welcome.</p>
+      <div class="flex gap-3">
+        <a href="https://www.facebook.com/PioneerVlg/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 lift-on-hover"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://www.instagram.com/pioneervillagenc/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 lift-on-hover"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Pioneer Village NC — All Rights Reserved.</span>
-      <span>219 Campbell Creek Rd, Maggie Valley, NC 28751</span>
+    <div>
+      <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Navigate</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="index.html" class="lift-on-hover">Home</a></li>
+        <li><a href="our-cabins.html" class="lift-on-hover">Our Cabins</a></li>
+        <li><a href="whats-local.html" class="lift-on-hover">What's Local</a></li>
+        <li><a href="about-us.html" class="lift-on-hover">About Us</a></li>
+        <li><a href="events.html" class="lift-on-hover">Area Events</a></li>
+        <li><a href="about-us.html#faq" class="lift-on-hover">FAQs</a></li>
+      </ul>
     </div>
-  </footer>
+    <div>
+      <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Book</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="our-cabins.html#cabin-grid" class="lift-on-hover">Check Availability</a></li>
+        <li><a href="about-us.html#contact" class="lift-on-hover">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-6 px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row gap-2 justify-between text-white/40 text-xs font-mono">
+    <span>© 2026 Pioneer Village NC — All Rights Reserved.</span>
+    <span>219 Campbell Creek Rd, Maggie Valley, NC 28751</span>
+  </div>
+</footer>
 
-  <script>
-    // ---- Hamburger menu ----
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open');
+<script src="assets/site.js"></script>
+<script>
+  // Filter panel toggle
+  const filterToggleBtn = document.getElementById('filter-toggle');
+  const filterPanel = document.getElementById('filter-panel');
+  const filterCountBadge = document.getElementById('filter-count');
+  const filterClearAllBtn = document.getElementById('filter-clear-all');
+  const filterResultsLabel = document.getElementById('filter-results-label');
+  const activeFilters = { view: 'all', beds: 'all', guests: 'all', pet: 'all' };
+
+  filterToggleBtn.addEventListener('click', () => filterPanel.classList.toggle('hidden'));
+
+  function updateBadge() {
+    const n = Object.values(activeFilters).filter(v => v !== 'all').length;
+    filterCountBadge.classList.toggle('hidden', n === 0);
+    filterCountBadge.textContent = n;
+    filterClearAllBtn.classList.toggle('hidden', n === 0);
+  }
+
+  function applyFilters() {
+    const cards = document.querySelectorAll('#cabin-grid .cabin-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const match = (activeFilters.view === 'all' || card.dataset.view === activeFilters.view)
+        && (activeFilters.beds === 'all' || card.dataset.beds === activeFilters.beds)
+        && (activeFilters.guests === 'all' || card.dataset.guests === activeFilters.guests)
+        && (activeFilters.pet === 'all' || card.dataset.pet === activeFilters.pet);
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
     });
+    document.getElementById('no-results').classList.toggle('hidden', visible !== 0);
+    filterResultsLabel.textContent = visible + (visible === 1 ? ' cabin' : ' cabins');
+    updateBadge();
+  }
 
-    // ---- Cabin filter logic ----
-    const activeFilters = { view: 'all', beds: 'all', guests: 'all', pet: 'all' };
-
-    const filterToggleBtn   = document.getElementById('filter-toggle');
-    const filterPanel       = document.getElementById('filter-panel');
-    const filterCountBadge  = document.getElementById('filter-count');
-    const filterClearAllBtn = document.getElementById('filter-clear-all');
-    const filterResultsLabel = document.getElementById('filter-results-label');
-
-    filterToggleBtn.addEventListener('click', () => {
-      filterPanel.classList.toggle('open');
-      filterToggleBtn.classList.toggle('open');
-    });
-
-    function updateBadge() {
-      const n = Object.values(activeFilters).filter(v => v !== 'all').length;
-      filterCountBadge.style.display = n > 0 ? 'inline' : 'none';
-      filterCountBadge.textContent = n;
-      filterClearAllBtn.style.display = n > 0 ? 'inline' : 'none';
-      filterToggleBtn.classList.toggle('has-active', n > 0);
-    }
-
-    function applyFilters() {
-      const cards = document.querySelectorAll('#cabin-grid .cabin-full-card');
-      let visibleCount = 0;
-
-      cards.forEach(card => {
-        const matchView   = activeFilters.view   === 'all' || card.dataset.view   === activeFilters.view;
-        const matchBeds   = activeFilters.beds   === 'all' || card.dataset.beds   === activeFilters.beds;
-        const matchGuests = activeFilters.guests === 'all' || card.dataset.guests === activeFilters.guests;
-        const matchPet    = activeFilters.pet    === 'all' || card.dataset.pet    === activeFilters.pet;
-
-        if (matchView && matchBeds && matchGuests && matchPet) {
-          card.style.display = '';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
-      filterResultsLabel.textContent = visibleCount + ' ' + (visibleCount === 1 ? 'cabin' : 'cabins');
-      updateBadge();
-    }
-
-    document.querySelectorAll('.filter-pill').forEach(pill => {
-      pill.addEventListener('click', () => {
-        const group = pill.dataset.group;
-        const value = pill.dataset.value;
-
-        if (activeFilters[group] === value && value !== 'all') {
-          activeFilters[group] = 'all';
-        } else {
-          activeFilters[group] = value;
-        }
-
-        document.querySelectorAll(`.filter-pill[data-group="${group}"]`).forEach(p => {
-          p.classList.toggle('active', p.dataset.value === activeFilters[group]);
-        });
-
-        applyFilters();
-      });
-    });
-
-    function clearAllFilters() {
-      Object.keys(activeFilters).forEach(g => { activeFilters[g] = 'all'; });
-      document.querySelectorAll('.filter-pill').forEach(p => {
-        p.classList.toggle('active', p.dataset.value === 'all');
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const group = pill.dataset.group, value = pill.dataset.value;
+      activeFilters[group] = (activeFilters[group] === value && value !== 'all') ? 'all' : value;
+      document.querySelectorAll(`.filter-pill[data-group="${group}"]`).forEach(p => {
+        p.classList.toggle('active', p.dataset.value === activeFilters[group]);
       });
       applyFilters();
-    }
-
-    document.getElementById('clear-filters').addEventListener('click', e => {
-      e.preventDefault();
-      clearAllFilters();
     });
+  });
 
-    filterClearAllBtn.addEventListener('click', clearAllFilters);
-
-    // On load, run applyFilters to set results label and read URL params
+  function clearAllFilters() {
+    Object.keys(activeFilters).forEach(g => activeFilters[g] = 'all');
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.value === 'all'));
     applyFilters();
+  }
+  filterClearAllBtn.addEventListener('click', clearAllFilters);
+  document.getElementById('clear-filters').addEventListener('click', e => { e.preventDefault(); clearAllFilters(); });
 
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const guestsParam = params.get('guests');
-      if (guestsParam) {
-        activeFilters.guests = guestsParam;
-        document.querySelectorAll('.filter-pill[data-group="guests"]').forEach(p => {
-          p.classList.toggle('active', p.dataset.value === guestsParam);
-        });
-        // Auto-open panel when arriving with a URL filter
-        filterPanel.classList.add('open');
-        filterToggleBtn.classList.add('open');
-        applyFilters();
-      }
-    })();
-  </script>
+  applyFilters();
 
-  <script>
-    // Fire conversion events when a visitor clicks any VRBO or Airbnb booking link
-    document.querySelectorAll('a[href*="vrbo.com"], a[href*="airbnb.com"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
-        if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const guestsParam = params.get('guests');
+    if (guestsParam) {
+      activeFilters.guests = guestsParam;
+      document.querySelectorAll('.filter-pill[data-group="guests"]').forEach(p => p.classList.toggle('active', p.dataset.value === guestsParam));
+      filterPanel.classList.remove('hidden');
+      applyFilters();
+    }
+  })();
+</script>
 
-        var card = el.closest('.cabin-full-card');
-        var cabin = card ? (card.querySelector('h3') || {}).textContent || 'Unknown' : 'Unknown';
-        var platform = el.href.indexOf('airbnb.com') !== -1 ? 'airbnb' : 'vrbo';
-        if (typeof gtag === 'function') gtag('event', 'booking_click', { cabin: cabin, platform: platform });
-      });
+<script>
+  // Fire conversion events when a visitor clicks any VRBO or Airbnb booking link
+  document.querySelectorAll('a[href*="vrbo.com"], a[href*="airbnb.com"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
+      if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
+      var card = el.closest('.cabin-card');
+      var cabin = card ? (card.querySelector('h3') || {}).textContent || 'Unknown' : 'Unknown';
+      var platform = el.href.indexOf('airbnb.com') !== -1 ? 'airbnb' : 'vrbo';
+      if (typeof gtag === 'function') gtag('event', 'booking_click', { cabin: cabin, platform: platform });
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>

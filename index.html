@@ -8,7 +8,6 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Pioneer Village NC" />
   <meta property="og:url" content="https://pioneervillagenc.com/" />
@@ -94,743 +93,567 @@
     ]
   }
   </script>
-  <style>
-    /* ---- Reviews Carousel ---- */
-    .reviews-carousel-outer {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 48px;
-    }
-    .carousel-track-container {
-      flex: 1;
-      overflow: hidden;
-    }
-    .carousel-track {
-      display: flex;
-      gap: 28px;
-      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: transform;
-      cursor: grab;
-      user-select: none;
-    }
-    .carousel-track:active { cursor: grabbing; }
-    /* Desktop: 3 cards visible — each card fills exactly 1/3 of the container minus 2 gaps */
-    .carousel-track .review-card {
-      flex: 0 0 calc((100% - 56px) / 3);
-      min-width: 0;
-    }
 
-    /* ---- Hero filter pills ---- */
-    .hero-filters {
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .hero-filter-label {
-      font-family: 'Lato', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--gold-light);
-      white-space: nowrap;
-    }
-    .hero-filter-btn {
-      display: inline-block;
-      font-family: 'Lato', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1.5px solid rgba(255, 255, 255, 0.55);
-      border-radius: 99px;
-      padding: 8px 20px;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, color 0.2s;
-      backdrop-filter: blur(4px);
-      white-space: nowrap;
-    }
-    .hero-filter-btn:hover {
-      background: rgba(184, 146, 74, 0.28);
-      border-color: var(--gold-light);
-      box-shadow: 0 2px 14px rgba(184, 146, 74, 0.35);
-      color: #fff;
-    }
-    .carousel-arrow {
-      flex-shrink: 0;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2px solid var(--stone);
-      background: #fff;
-      color: var(--text-mid);
-      font-size: 26px;
-      line-height: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
-      padding: 0;
-    }
-    .carousel-arrow:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      box-shadow: 0 2px 10px rgba(184,146,74,0.2);
-    }
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 28px;
-    }
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--stone);
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.25s, transform 0.25s;
-    }
-    .carousel-dot.active {
-      background: var(--gold);
-      transform: scale(1.45);
-    }
-    @media (max-width: 768px) {
-      .carousel-track .review-card {
-        flex: 0 0 100%;
-      }
-      .carousel-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 20px;
-      }
-    }
-
-    /* ---- Gallery Carousel ---- */
-    .gallery-carousel-outer {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 48px;
-    }
-    .gallery-carousel-track {
-      display: flex;
-      gap: 12px;
-      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: transform;
-    }
-    .gallery-carousel-slide {
-      flex: 0 0 calc((100% - 24px) / 3);
-      min-width: 0;
-      overflow: hidden;
-      border-radius: 6px;
-      height: 280px;
-    }
-    .gallery-carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-      display: block;
-    }
-    .gallery-carousel-slide:hover img { transform: scale(1.04); }
-    @media (max-width: 768px) {
-      .gallery-carousel-slide {
-        flex: 0 0 100%;
-        height: 220px;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">Pioneer Village</span>
-      <span class="nav-logo-sub">Maggie Valley, NC</span>
-    </a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="our-cabins.html">Our Cabins</a></li>
-      <li><a href="whats-local.html">What's Local</a></li>
-      <li><a href="about-us.html">About Us</a></li>
-      <li>
-        <a href="our-cabins.html#cabin-grid" class="nav-book-btn">Book Now</a>
-      </li>
-    </ul>
-  </nav>
+<body class="font-body">
+<div class="noise-overlay"></div>
 
-  <!-- SECTION 1: HERO -->
-  <section class="hero">
-    <div class="hero-bg" style="background-image: url('pv-hero.jpg');"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">14 Cabins · Maggie Valley, NC</p>
-      <h1>Where the Mountains<br><em>Meet the Creek</em></h1>
-      <p class="hero-sub">Rustic cabins, stone fireplaces, and the sound of Campbell Creek outside your door. Your Smoky Mountain escape is waiting.</p>
-      <div class="btn-group" style="justify-content:center;">
-        <a href="our-cabins.html#cabin-grid" class="btn btn-gold">Book a Cabin</a>
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 mt-4">
+    <div id="nav-pill" class="flex items-center justify-between rounded-full px-5 sm:px-6 py-3 transition-all duration-300">
+      <a href="#home" class="flex items-baseline gap-2">
+        <span class="font-display font-bold text-lg tracking-tight" id="nav-brand">Pioneer Village</span>
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em]" id="nav-brand-sub">Maggie Valley, NC</span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-8 font-medium text-sm" id="nav-links">
+        <a href="index.html" class="lift-on-hover text-primary-dark font-semibold">Home</a>
+        <a href="our-cabins.html" class="lift-on-hover">Our Cabins</a>
+        <a href="whats-local.html" class="lift-on-hover">What's Local</a>
+        <a href="about-us.html" class="lift-on-hover">About Us</a>
       </div>
-      <div class="hero-filters">
-        <span class="hero-filter-label">Traveling as:</span>
-        <a href="our-cabins.html?guests=2" class="hero-filter-btn">Just the Two of Us</a>
-        <a href="our-cabins.html?guests=4" class="hero-filter-btn">Small Group (4)</a>
-        <a href="our-cabins.html?guests=6" class="hero-filter-btn">Large Group (6+)</a>
-      </div>
+
+      <a href="our-cabins.html#cabin-grid" class="hidden lg:inline-flex magnetic-btn items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-primary/30">
+        Book Now
+      </a>
+
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="w-6 h-0.5 bg-current"></span>
+        <span class="w-6 h-0.5 bg-current"></span>
+        <span class="w-6 h-0.5 bg-current"></span>
+      </button>
     </div>
-  </section>
-
-  <!-- SECTION 2: TRUST BAR -->
-  <section class="trust-bar">
-    <div class="trust-bar-inner">
-      <div class="trust-item">
-        <div class="trust-item-icon">🏡</div>
-        <div class="trust-item-title">14 Unique Cabins</div>
-        <div class="trust-item-sub">Creek-side &amp; mountain views</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-item-icon">🐾</div>
-        <div class="trust-item-title">Pet Friendly</div>
-        <div class="trust-item-sub">Bring the whole family</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-item-icon">📅</div>
-        <div class="trust-item-title">Open Year-Round</div>
-        <div class="trust-item-sub">Every season is beautiful</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-item-icon">🔥</div>
-        <div class="trust-item-title">Stone Fireplaces</div>
-        <div class="trust-item-sub">Cozy up any time of year</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DRIVING DISTANCE CALLOUT -->
-  <div style="background:#fff;border-top:1px solid var(--stone);border-bottom:1px solid var(--stone);padding:16px 24px;text-align:center;">
-    <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);">
-      🚗 &nbsp; 2.5 hrs from Charlotte &nbsp;·&nbsp; 3 hrs from Raleigh &nbsp;·&nbsp; 4 hrs from Atlanta &nbsp;·&nbsp; 3.5 hrs from Knoxville
-    </p>
   </div>
 
-  <!-- SECTION 3: ABOUT / INTRO -->
-  <section>
-    <div class="about-section">
-      <div class="about-img-wrap">
-        <img src="pv-creek.jpg"
-             alt="Pioneer Village cabins along Campbell Creek" loading="lazy" />
-        <div class="about-badge">
-          <span class="about-badge-num">14</span>
-          <span class="about-badge-label">Unique<br>Cabins</span>
-        </div>
-      </div>
-      <div class="about-text">
-        <p class="section-label">About Pioneer Village</p>
-        <h2>Tucked into the Heart of <em>Maggie Valley</em></h2>
-        <p>Nestled along Campbell Creek in the Great Smoky Mountains, Pioneer Village is a 14-cabin resort built for people who want to actually get away. No cookie-cutter lodging. No crowds. Just mountain air, creek sounds, and a porch with a rocking chair.</p>
-        <p>Under new ownership, we've updated the experience while keeping everything that makes this place special: the stone fireplaces, the full kitchens, the creek views, and the quiet.</p>
-        <div class="amenity-grid">
-          <div class="amenity-item"><span class="amenity-dot"></span>Stone fireplaces</div>
-          <div class="amenity-item"><span class="amenity-dot"></span>Full kitchens</div>
-          <div class="amenity-item"><span class="amenity-dot"></span>Private porches</div>
-          <div class="amenity-item"><span class="amenity-dot"></span>Creek &amp; mountain views</div>
-          <div class="amenity-item"><span class="amenity-dot"></span>Minutes from Blue Ridge Pkwy</div>
-          <div class="amenity-item"><span class="amenity-dot"></span>Tubing &amp; hiking nearby</div>
-          <div class="amenity-item"><span class="amenity-dot"></span>Pet friendly options</div>
-          <div class="amenity-item"><span class="amenity-dot"></span>Group bookings welcome</div>
-        </div>
-        <a href="our-cabins.html" class="btn btn-outline-dark">See All Cabins</a>
-      </div>
-    </div>
-  </section>
+  <!-- mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden mx-5 mt-2 rounded-3xl glass-dark text-white p-6 flex flex-col gap-5 font-medium">
+    <a href="index.html" class="text-primary-light">Home</a>
+    <a href="our-cabins.html">Our Cabins</a>
+    <a href="whats-local.html">What's Local</a>
+    <a href="about-us.html">About Us</a>
+    <a href="our-cabins.html#cabin-grid" class="magnetic-btn inline-flex justify-center items-center gap-2 bg-primary text-white px-5 py-3 rounded-full font-semibold text-sm">Book Now</a>
+  </div>
+</nav>
 
-  <!-- SECTION 4: CABINS PREVIEW -->
-  <section class="cabins-preview">
-    <div class="cabins-preview-inner">
-      <div class="section-header">
-        <p class="section-label">Our Cabins</p>
-        <h2>Every Cabin is One of a Kind</h2>
-        <p>From creek-side hideaways to mountain-view retreats, each of our 14 cabins has its own character. Book one or rent the whole village for a group.</p>
+<main>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative min-h-[100dvh] overflow-hidden">
+  <img src="pv-hero.jpg" alt="Pioneer Village cabin along Campbell Creek" class="absolute inset-0 h-full w-full object-cover brightness-[0.35]" />
+  <div class="absolute inset-0 bg-gradient-to-br from-deep/90 via-deep/60 to-deep/85"></div>
+  <div class="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-deep via-deep/80 to-transparent"></div>
+
+  <!-- floating leaf particles -->
+  <div class="absolute top-24 right-10 sm:right-20 hidden sm:block opacity-70 pointer-events-none">
+    <div class="w-2 h-2 rounded-full bg-primary-light animate-float" style="animation-delay:0s"></div>
+    <div class="w-1.5 h-1.5 rounded-full bg-accent animate-float ml-8 -mt-1" style="animation-delay:1.2s"></div>
+    <div class="w-2.5 h-2.5 rounded-full bg-primary animate-float ml-3 mt-2" style="animation-delay:2.4s"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-32 pb-20 min-h-[100dvh] flex flex-col justify-end">
+    <p class="hero-meta font-mono text-xs uppercase tracking-[0.25em] text-white/70 mb-6">14 Private Cabins · Campbell Creek · Est. Legacy, New Era</p>
+    <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.95] max-w-5xl">
+      <span class="hero-line-1 block">Where the Mountains</span>
+      <span class="hero-line-2 block font-serif italic font-medium text-primary-light">Meet the Creek</span>
+    </h1>
+    <p class="hero-meta mt-8 max-w-xl text-white/70 text-base sm:text-lg leading-relaxed">
+      A quieter kind of luxury in the Great Smoky Mountains — stone hearths, private porches, and Campbell Creek running past your door. Fourteen cabins. No two alike.
+    </p>
+    <div class="hero-cta mt-10 flex flex-wrap gap-3">
+      <a href="our-cabins.html#cabin-grid" class="magnetic-btn inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg shadow-primary/30">
+        Reserve Your Cabin <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+      </a>
+      <a href="whats-local.html" class="magnetic-btn inline-flex items-center gap-2 glass-dark text-white px-6 py-3 rounded-full font-semibold border border-white/15">
+        <i data-lucide="tent-tree" class="h-4 w-4"></i> Explore the Area
+      </a>
+    </div>
+
+    <div class="hero-meta mt-14 flex items-center gap-3 text-white/60 text-xs font-mono uppercase tracking-[0.15em]">
+      <i data-lucide="chevron-down" class="h-4 w-4 animate-bounce"></i> Scroll
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features" class="py-24 sm:py-32 lg:py-40 bg-background">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+    <div class="max-w-2xl mb-16">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">A Different Kind of Getaway</p>
+      <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-ink">Built for people who <span class="font-serif italic font-medium gradient-text">actually</span> unplug.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Card 1: Cabin shuffler -->
+      <div class="feature-card p-6 sm:p-8 rounded-3xl bg-surface border border-divider shadow-sm lift-on-hover">
+        <div class="h-44 rounded-2xl overflow-hidden relative mb-6" id="shuffler">
+          <img src="cabin9-preview.jpg" class="shuffler-img absolute inset-0 w-full h-full object-cover transition-opacity duration-700" data-tag="Creek Views" style="opacity:1" />
+          <img src="cabin5-mountain.jpg" class="shuffler-img absolute inset-0 w-full h-full object-cover transition-opacity duration-700" data-tag="Mountain Views" style="opacity:0" />
+          <img src="cabin12-preview.jpg" class="shuffler-img absolute inset-0 w-full h-full object-cover transition-opacity duration-700" data-tag="Rustic Charm" style="opacity:0" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <span id="shuffler-tag" class="absolute bottom-3 left-3 font-mono text-[10px] uppercase tracking-[0.15em] bg-white/90 text-ink px-3 py-1 rounded-full">Creek Views</span>
+        </div>
+        <div class="h-10 w-10 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+          <i data-lucide="layers" class="h-6 w-6 text-primary-dark" stroke-width="2.3"></i>
+        </div>
+        <h3 class="font-display text-xl sm:text-2xl font-bold mb-2">Every Cabin, Its Own Character</h3>
+        <p class="text-sm sm:text-base text-muted leading-relaxed">Creek-side hideaways, mountain-view retreats, and classic pioneer charm — no cookie-cutter units, no two stays alike.</p>
       </div>
-      <div class="cabin-cards-grid">
-        <div class="cabin-card">
-          <img class="cabin-card-img" src="cabin9-preview.jpg" alt="Creek-side cabin at Pioneer Village" loading="lazy" />
-          <div class="cabin-card-body">
-            <span class="cabin-card-tag">Creek Views</span>
-            <h3>Creek-Side Cabins</h3>
-            <p>Fall asleep to the sound of Campbell Creek just steps from your porch. Stone fireplace, full kitchen, and all the mountain quiet you came for.</p>
-            <a href="our-cabins.html" class="cabin-card-link">View Cabins →</a>
+
+      <!-- Card 2: Signature animation — leaves into the creek -->
+      <div class="feature-card p-6 sm:p-8 rounded-3xl bg-surface border border-divider shadow-sm lift-on-hover">
+        <div class="h-44 rounded-2xl relative overflow-hidden mb-6" style="background:linear-gradient(180deg,#1c2116 0%,#141810 55%,#0d1a1c 100%)">
+          <!-- treeline -->
+          <svg class="absolute top-0 left-0 w-full" height="30" viewBox="0 0 300 30" preserveAspectRatio="none">
+            <path d="M0,30 L20,6 L34,30 L55,2 L72,30 L98,10 L115,30 L140,4 L160,30 L185,8 L205,30 L228,3 L248,30 L270,9 L290,30 L300,15 L300,30 Z" fill="#0b0f0a"/>
+          </svg>
+          <!-- falling leaves -->
+          <div class="leaf-particle" style="left:18%; animation-duration:3.1s; animation-delay:0s;">
+            <svg width="9" height="9" viewBox="0 0 10 10"><path d="M5 0C8 3 10 5 5 10C0 5 2 3 5 0Z" fill="#d9b876"/></svg>
+          </div>
+          <div class="leaf-particle" style="left:38%; animation-duration:3.8s; animation-delay:.7s;">
+            <svg width="7" height="7" viewBox="0 0 10 10"><path d="M5 0C8 3 10 5 5 10C0 5 2 3 5 0Z" fill="#b6512f"/></svg>
+          </div>
+          <div class="leaf-particle" style="left:58%; animation-duration:3.3s; animation-delay:1.4s;">
+            <svg width="8" height="8" viewBox="0 0 10 10"><path d="M5 0C8 3 10 5 5 10C0 5 2 3 5 0Z" fill="#b8924a"/></svg>
+          </div>
+          <div class="leaf-particle" style="left:74%; animation-duration:4.1s; animation-delay:.3s;">
+            <svg width="7" height="7" viewBox="0 0 10 10"><path d="M5 0C8 3 10 5 5 10C0 5 2 3 5 0Z" fill="#d9b876"/></svg>
+          </div>
+          <div class="leaf-particle" style="left:26%; animation-duration:3.6s; animation-delay:2s;">
+            <svg width="6" height="6" viewBox="0 0 10 10"><path d="M5 0C8 3 10 5 5 10C0 5 2 3 5 0Z" fill="#b6512f"/></svg>
+          </div>
+          <div class="leaf-particle" style="left:86%; animation-duration:3.4s; animation-delay:1s;">
+            <svg width="8" height="8" viewBox="0 0 10 10"><path d="M5 0C8 3 10 5 5 10C0 5 2 3 5 0Z" fill="#b8924a"/></svg>
+          </div>
+          <div class="leaf-particle" style="left:48%; animation-duration:4s; animation-delay:2.6s;">
+            <svg width="7" height="7" viewBox="0 0 10 10"><path d="M5 0C8 3 10 5 5 10C0 5 2 3 5 0Z" fill="#d9b876"/></svg>
+          </div>
+          <!-- creek surface -->
+          <svg class="absolute bottom-0 left-0 w-full" height="26" viewBox="0 0 300 26" preserveAspectRatio="none">
+            <path d="M0,10 Q40,20 80,10 T160,10 T240,10 T300,10 L300,26 L0,26 Z" fill="#1a3a3f" opacity="0.9"/>
+          </svg>
+          <div class="creek-ripple" style="left:30%; bottom:8px; animation-delay:.4s;"></div>
+          <div class="creek-ripple" style="left:60%; bottom:6px; animation-delay:1.6s;"></div>
+          <div class="creek-ripple" style="left:78%; bottom:9px; animation-delay:2.8s;"></div>
+
+          <div class="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-[0.15em] text-white/60">Campbell Creek · Live</div>
+          <div class="absolute bottom-3 right-3 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-white/60">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary-light ring-pulse"></span>
+            <span id="creek-status">leaves falling</span>
           </div>
         </div>
-        <div class="cabin-card">
-          <img class="cabin-card-img" src="cabin5-mountain.jpg" alt="Mountain view cabin at Pioneer Village" loading="lazy" />
-          <div class="cabin-card-body">
-            <span class="cabin-card-tag">Mountain Views</span>
-            <h3>Mountain View Cabins</h3>
-            <p>Wake up to panoramic Smoky Mountain views from your private porch. Spacious, comfortable, and completely unplugged from the everyday.</p>
-            <a href="our-cabins.html" class="cabin-card-link">View Cabins →</a>
+        <div class="h-10 w-10 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+          <i data-lucide="waves" class="h-6 w-6 text-primary-dark" stroke-width="2.3"></i>
+        </div>
+        <h3 class="font-display text-xl sm:text-2xl font-bold mb-2">The Sound That Sells Itself</h3>
+        <p class="text-sm sm:text-base text-muted leading-relaxed">Every cabin sits within earshot of Campbell Creek. Guests say it's the first thing they notice — and the last thing they miss.</p>
+      </div>
+
+      <!-- Card 3: Availability scheduler -->
+      <div class="feature-card p-6 sm:p-8 rounded-3xl bg-surface border border-divider shadow-sm lift-on-hover">
+        <div class="h-44 rounded-2xl bg-deep-surface relative overflow-hidden mb-6 p-4">
+          <div class="font-mono text-[10px] uppercase tracking-[0.15em] text-white/50 mb-3">October — Weekday Availability</div>
+          <div class="grid grid-cols-7 gap-1.5">
+            <div class="text-[9px] text-white/30 text-center font-mono">M</div><div class="text-[9px] text-white/30 text-center font-mono">T</div><div class="text-[9px] text-white/30 text-center font-mono">W</div><div class="text-[9px] text-white/30 text-center font-mono">T</div><div class="text-[9px] text-white/30 text-center font-mono">F</div><div class="text-[9px] text-white/30 text-center font-mono">S</div><div class="text-[9px] text-white/30 text-center font-mono">S</div>
+            <div class="aspect-square rounded bg-white/5"></div><div class="aspect-square rounded bg-primary/70" id="cal-cell"></div><div class="aspect-square rounded bg-primary/40"></div><div class="aspect-square rounded bg-white/5"></div><div class="aspect-square rounded bg-accent/40"></div><div class="aspect-square rounded bg-accent/60"></div><div class="aspect-square rounded bg-accent/60"></div>
+            <div class="aspect-square rounded bg-primary/50"></div><div class="aspect-square rounded bg-primary/70"></div><div class="aspect-square rounded bg-white/5"></div><div class="aspect-square rounded bg-primary/40"></div><div class="aspect-square rounded bg-accent/50"></div><div class="aspect-square rounded bg-accent/60"></div><div class="aspect-square rounded bg-accent/60"></div>
+          </div>
+          <div id="cal-cursor" class="absolute h-5 w-5 pointer-events-none transition-all duration-700 ease-out" style="top:64px; left:52px;">
+            <i data-lucide="mouse-pointer-2" class="h-4 w-4 text-white drop-shadow"></i>
+          </div>
+          <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between font-mono text-[10px] text-white/60 uppercase tracking-[0.12em]">
+            <span>Mon–Thu from $189/night</span>
+            <span class="text-primary-light">Book direct →</span>
           </div>
         </div>
-        <div class="cabin-card">
-          <img class="cabin-card-img" src="cabin12-preview.jpg" alt="Classic Pioneer cabin" loading="lazy" />
-          <div class="cabin-card-body">
-            <span class="cabin-card-tag">Rustic Charm</span>
-            <h3>Classic Pioneer Cabins</h3>
-            <p>The quintessential Smoky Mountain cabin experience. Rustic charm, modern comfort, and a covered porch that's hard to leave.</p>
-            <a href="our-cabins.html" class="cabin-card-link">View Cabins →</a>
-          </div>
+        <div class="h-10 w-10 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+          <i data-lucide="calendar-check" class="h-6 w-6 text-primary-dark" stroke-width="2.3"></i>
+        </div>
+        <h3 class="font-display text-xl sm:text-2xl font-bold mb-2">The Valley Doesn't Care What Day It Is</h3>
+        <p class="text-sm sm:text-base text-muted leading-relaxed">Crowds thin midweek, rates drop, and the trails open up. Remote workers and quiet-seekers, take note.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section class="relative py-24 sm:py-32 bg-deep grid-bg overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+    <div class="grid sm:grid-cols-3 gap-10 sm:gap-6 text-center">
+      <div class="pillar">
+        <div class="font-display text-5xl sm:text-6xl font-extrabold text-white"><span class="count-up" data-end="14">0</span></div>
+        <div class="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto my-4 pillar-sweep"></div>
+        <p class="font-mono text-xs uppercase tracking-[0.18em] text-white/60">Unique Cabins</p>
+      </div>
+      <div class="pillar">
+        <div class="font-display text-5xl sm:text-6xl font-extrabold text-white"><span class="count-up" data-end="5" data-decimal="1">0</span><span class="text-primary-light">★</span></div>
+        <div class="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto my-4 pillar-sweep"></div>
+        <p class="font-mono text-xs uppercase tracking-[0.18em] text-white/60">Average Guest Rating</p>
+      </div>
+      <div class="pillar">
+        <div class="font-display text-5xl sm:text-6xl font-extrabold text-white"><span class="count-up" data-end="365">0</span></div>
+        <div class="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto my-4 pillar-sweep"></div>
+        <p class="font-mono text-xs uppercase tracking-[0.18em] text-white/60">Days Open a Year</p>
+      </div>
+    </div>
+
+    <!-- testimonial strip -->
+    <div class="mt-20 grid md:grid-cols-3 gap-6">
+      <blockquote class="p-6 rounded-2xl border border-white/10 text-white/80">
+        <p class="font-serif italic text-lg leading-relaxed">"The fireplace crackled all evening and we could hear the creek right from our porch. It felt like a dream."</p>
+        <footer class="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">— Michael T., Airbnb Review</footer>
+      </blockquote>
+      <blockquote class="p-6 rounded-2xl border border-white/10 text-white/80">
+        <p class="font-serif italic text-lg leading-relaxed">"Sipping coffee in rocking chairs, watching ducks in the creek — the perfect start to each day."</p>
+        <footer class="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">— Kathleen J., VRBO Review</footer>
+      </blockquote>
+      <blockquote class="p-6 rounded-2xl border border-white/10 text-white/80">
+        <p class="font-serif italic text-lg leading-relaxed">"The hidden gem of Maggie Valley. Mountain views from the porch in the morning are unbeatable."</p>
+        <footer class="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">— Linda M., Google Review</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROTOCOL (guest journey, sticky stack) ============ -->
+<section id="journey" class="py-24 sm:py-32 bg-background">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+    <div class="max-w-2xl mb-16">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">Your Stay</p>
+      <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tighter">Three steps to the valley.</h2>
+    </div>
+  </div>
+
+  <div style="min-height: 260vh;" class="relative">
+    <div class="protocol-card max-w-4xl mx-auto px-6" style="top:6rem;">
+      <div class="rounded-3xl overflow-hidden shadow-2xl grid md:grid-cols-2 bg-surface border border-divider">
+        <img src="cabin9-preview.jpg" class="w-full h-64 md:h-full object-cover" />
+        <div class="p-8 sm:p-10 flex flex-col justify-center">
+          <span class="font-mono text-xs text-primary-dark uppercase tracking-[0.18em]">Step 01</span>
+          <h3 class="font-display text-2xl sm:text-3xl font-bold mt-3 mb-3">Choose Your Cabin</h3>
+          <p class="text-muted leading-relaxed">Creek-side, mountain-view, or classic pioneer charm — browse all fourteen and pick the one that matches your trip.</p>
         </div>
       </div>
-      <div class="text-center">
-        <a href="our-cabins.html" class="btn btn-outline-dark">View All Cabins</a>
-      </div>
     </div>
-  </section>
-
-  <!-- SECTION 5: WEEKDAY DEALS -->
-  <section class="weekday-section" id="weekday">
-    <div class="weekday-inner">
-      <div class="weekday-text">
-        <p class="section-label">Weekday Deals</p>
-        <h2>The Mountains Don't Care <em>What Day It Is</em></h2>
-        <p>Crowds thin out Monday through Thursday. Rates drop. Trails open up. If you can work remotely or flex your schedule, a midweek stay at Pioneer Village is hard to beat.</p>
-        <p>Whether you're a remote worker looking for a change of scenery, a couple escaping before the weekend rush, or a group booking out the whole village — weekday availability is wide open.</p>
-        <a href="https://www.vrbo.com/vacation-rentals/usa/nc/maggie-valley?utm_source=website&utm_medium=referral&utm_campaign=weekday_deal"
-           class="btn btn-gold mt-32" target="_blank" rel="noopener" style="margin-top:32px;">Check Weekday Availability</a>
-      </div>
-      <div class="weekday-cards">
-        <div class="weekday-card">
-          <div class="weekday-card-badge">Best Value</div>
-          <h4>Remote Work Retreat</h4>
-          <p>Mon – Thu · High-speed WiFi included</p>
-        </div>
-        <div class="weekday-card">
-          <div class="weekday-card-badge">Low Season</div>
-          <h4>Midweek Couple Escape</h4>
-          <p>Mon – Thu · 2-night minimum</p>
-        </div>
-        <div class="weekday-card">
-          <div class="weekday-card-badge">Inquire</div>
-          <h4>Group Village Buyout</h4>
-          <p>All 14 cabins · Corporate &amp; retreats welcome</p>
-        </div>
-        <div class="weekday-card">
-          <div class="weekday-card-badge">Contact Us</div>
-          <h4>Extended Stay</h4>
-          <p>5+ nights · Ask about weekly rates</p>
+    <div class="protocol-card max-w-4xl mx-auto px-6" style="top:6rem;">
+      <div class="rounded-3xl overflow-hidden shadow-2xl grid md:grid-cols-2 bg-surface border border-divider">
+        <img src="pv-fall.jpg" class="w-full h-64 md:h-full object-cover" />
+        <div class="p-8 sm:p-10 flex flex-col justify-center">
+          <span class="font-mono text-xs text-primary-dark uppercase tracking-[0.18em]">Step 02</span>
+          <h3 class="font-display text-2xl sm:text-3xl font-bold mt-3 mb-3">Book Direct</h3>
+          <p class="text-muted leading-relaxed">Message the host through your chosen cabin's listing, skip the extra platform fees, and lock in the best rate available.</p>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- SECTION 6: GALLERY -->
-  <section class="gallery-section">
-    <div class="gallery-inner">
-      <div class="section-header">
-        <p class="section-label">The Village</p>
-        <h2>Every Season Has Its Magic</h2>
-        <p>Fall foliage, winter snow, spring wildflowers, summer tubing. Pioneer Village is worth visiting year-round.</p>
-      </div>
-      <div class="gallery-carousel-outer" id="gallery-carousel">
-        <button class="carousel-arrow carousel-prev" aria-label="Previous photos">&#8249;</button>
-        <div class="carousel-track-container">
-          <div class="gallery-carousel-track">
-            <div class="gallery-carousel-slide"><img src="pv-main.jpg" alt="Pioneer Village aerial view" loading="lazy" /></div>
-            <div class="gallery-carousel-slide"><img src="pv-fall.jpg" alt="Pioneer Village in fall" loading="lazy" /></div>
-            <div class="gallery-carousel-slide"><img src="pv-creek.jpg" alt="Pioneer Village cabins along Campbell Creek" loading="lazy" /></div>
-            <div class="gallery-carousel-slide"><img src="pv-exterior.jpg" alt="Pioneer Village cabin exterior" loading="lazy" /></div>
-            <div class="gallery-carousel-slide"><img src="pv-snow.jpg" alt="Pioneer Village sign in snow" loading="lazy" /></div>
-            <div class="gallery-carousel-slide"><img src="cabin5.jpg" alt="Cabin 5 at Pioneer Village" loading="lazy" /></div>
-            <div class="gallery-carousel-slide"><img src="pv-summer.jpg" alt="Pioneer Village cabin in summer" loading="lazy" /></div>
-            <div class="gallery-carousel-slide"><img src="pv-aerial.jpg" alt="Pioneer Village property" loading="lazy" /></div>
-            <div class="gallery-carousel-slide"><img src="cabin10-gallery.jpg" alt="Cabin 10 at Pioneer Village" loading="lazy" /></div>
-          </div>
-        </div>
-        <button class="carousel-arrow carousel-next" aria-label="Next photos">&#8250;</button>
-      </div>
-      <div class="carousel-dots" id="gallery-dots" style="margin-top:24px;" role="tablist" aria-label="Gallery slides"></div>
-    </div>
-  </section>
-
-  <!-- SECTION 7: REVIEWS -->
-  <section class="reviews-section" id="reviews-carousel">
-    <div style="max-width:1100px;margin:0 auto;">
-      <div class="section-header">
-        <p class="section-label">Guest Reviews</p>
-        <h2>What Guests Are Saying</h2>
-        <p>Don't take our word for it.</p>
-      </div>
-
-      <!-- Carousel -->
-      <div class="reviews-carousel-outer">
-        <button class="carousel-arrow carousel-prev" aria-label="Previous reviews">&#8249;</button>
-        <div class="carousel-track-container">
-          <div class="carousel-track">
-
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"We have stayed in the cabins at Pioneer Village for many years, but we loved staying in the big house with our group of friends. It was cozy and welcoming and so convenient to downtown Maggie Valley. We love the babbling brook, it's so peaceful."</p>
-              <div class="review-author">Katharine G.</div>
-              <div class="review-source">VRBO Review</div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Absolutely perfect mountain getaway. The fireplace crackled all evening and we could hear the creek right from our porch. Woke up to mountain fog drifting through the trees — it felt like a dream. We'll be back every fall."</p>
-              <div class="review-author">Michael T.</div>
-              <div class="review-source">Airbnb Review</div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"We booked two cabins for a family trip and couldn't have been happier. The kids loved exploring the creek and the adults loved the rocking chairs and mountain views. Maggie Valley is a gem and Pioneer Village is the perfect place to stay."</p>
-              <div class="review-author">Sarah W.</div>
-              <div class="review-source">Google Review</div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Sipping coffee in the morning in rocking chairs watching ducks in the creek was a perfect start to each day. The cabin was so comfortable and had everything we needed to feel at home."</p>
-              <div class="review-author">Kathleen J.</div>
-              <div class="review-source">VRBO Review</div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Stayed here for a long weekend with my partner and it exceeded every expectation. The cabin was cozy and well-equipped, the stone fireplace was everything we hoped for, and being steps from the creek made it feel completely removed from everyday life."</p>
-              <div class="review-author">James R.</div>
-              <div class="review-source">Airbnb Review</div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"This is our third time staying at Pioneer Village. It is a wonderful place to vacation. Ronnie checked in with us to see if we needed anything — super helpful and nice."</p>
-              <div class="review-author">Brooke H.</div>
-              <div class="review-source">VRBO Review</div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Pioneer Village is the hidden gem of Maggie Valley. We've tried other places nearby but keep coming back here. The mountain views from the porch in the morning are unbeatable, and the location is perfect for exploring the Blue Ridge Parkway."</p>
-              <div class="review-author">Linda M.</div>
-              <div class="review-source">Google Review</div>
-            </div>
-
-          </div><!-- /.carousel-track -->
-        </div><!-- /.carousel-track-container -->
-        <button class="carousel-arrow carousel-next" aria-label="Next reviews">&#8250;</button>
-      </div><!-- /.reviews-carousel-outer -->
-
-      <div class="carousel-dots" role="tablist" aria-label="Review slides"></div>
-    </div>
-  </section>
-
-  <!-- SECTION 8: FULL-BLEED CTA BANNER -->
-  <section class="cta-banner">
-    <div class="cta-banner-bg" style="background-image: url('pv-fall.jpg');"></div>
-    <div class="cta-banner-overlay"></div>
-    <div class="cta-banner-content">
-      <h2>Ready for a Real <em>Mountain Escape?</em></h2>
-      <p>14 cabins, one beautiful valley. Book direct for the best rates and skip the platform fees.</p>
-      <div class="btn-group" style="justify-content:center;">
-        <a href="https://www.vrbo.com/vacation-rentals/usa/nc/maggie-valley?utm_source=website&utm_medium=referral&utm_campaign=direct_booking"
-           class="btn btn-gold" target="_blank" rel="noopener">Book a Cabin</a>
-        <a href="about-us.html" class="btn btn-outline">Contact Us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 9: CONTACT STRIP -->
-  <section class="contact-strip">
-    <div class="contact-strip-inner">
-      <div class="contact-info">
-        <p class="section-label">Get In Touch</p>
-        <h2>We'd Love to Help You Plan Your Stay</h2>
-        <p>Have a question about a cabin? Message the host directly through that cabin's Vrbo or Airbnb listing — we're responsive and happy to help you plan your stay.</p>
-        <ul class="contact-details">
-          <li>
-            <span>📍</span>
-            <span>219 Campbell Creek Road, Maggie Valley, NC 28751</span>
-          </li>
-          <li>
-            <span>💬</span>
-            <span>Cabin questions? Reach out through the <a href="our-cabins.html#cabin-grid">Vrbo or Airbnb listing</a> for that cabin — we'll get back to you there!</span>
-          </li>
-          <li>
-            <span>❓</span>
-            <span><a href="about-us.html#faq">Visit our FAQ page →</a></span>
-          </li>
-        </ul>
-      </div>
-      <div class="contact-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.723!2d-83.10056!3d35.51223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88598a41c3a2addf%3A0x5a76f69c0fdbf4f0!2s219+Campbell+Creek+Rd%2C+Maggie+Valley%2C+NC+28751!5e0!3m2!1sen!2sus!4v1234567890"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pioneer Village location map"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">Pioneer Village</div>
-        <div class="footer-brand-sub">Maggie Valley, NC</div>
-        <p class="footer-brand-desc">14 rustic cabins nestled along Campbell Creek in the heart of the Smoky Mountains. Open year-round. Pet friendly. Group bookings welcome.</p>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="https://www.facebook.com/PioneerVlg/" class="footer-fb-link" target="_blank" rel="noopener">
-            <span class="footer-fb-icon">f</span>
-            Follow us on Facebook
-          </a>
-          <a href="https://www.instagram.com/pioneervillagenc/" class="footer-fb-link" target="_blank" rel="noopener">
-            <span class="footer-fb-icon">📷</span>
-            Follow us on Instagram
-          </a>
+    <div class="protocol-card max-w-4xl mx-auto px-6" style="top:6rem;">
+      <div class="rounded-3xl overflow-hidden shadow-2xl grid md:grid-cols-2 bg-surface border border-divider">
+        <img src="pv-creek.jpg" class="w-full h-64 md:h-full object-cover" />
+        <div class="p-8 sm:p-10 flex flex-col justify-center">
+          <span class="font-mono text-xs text-primary-dark uppercase tracking-[0.18em]">Step 03</span>
+          <h3 class="font-display text-2xl sm:text-3xl font-bold mt-3 mb-3">Arrive &amp; Unplug</h3>
+          <p class="text-muted leading-relaxed">Stone fireplace lit, porch rocking chairs waiting, and Campbell Creek running past your door. That's it. That's the whole plan.</p>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="our-cabins.html">Our Cabins</a></li>
-          <li><a href="whats-local.html">What's Local</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="events.html">Area Events</a></li>
-          <li><a href="about-us.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Book</h4>
-        <ul>
-          <li><a href="our-cabins.html">Check Availability</a></li>
-          <li><a href="index.html#weekday">Weekday Deals</a></li>
-        </ul>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Pioneer Village NC — All Rights Reserved.</span>
-      <span>219 Campbell Creek Rd, Maggie Valley, NC 28751</span>
-    </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // ---- Hamburger nav ----
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open');
+<!-- ============ SERVICES GRID (cabin categories) ============ -->
+<section id="cabins" class="bg-deep">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-24 sm:py-32">
+    <div class="max-w-2xl mb-16 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-light mb-4">Our Cabins</p>
+        <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-white">Fourteen cabins. <span class="font-serif italic font-medium text-primary-light">Zero alike.</span></h2>
+      </div>
+      <a href="our-cabins.html" class="magnetic-btn inline-flex items-center gap-2 glass-dark text-white px-5 py-2.5 rounded-full font-semibold text-sm border border-white/15 whitespace-nowrap">
+        View All 14 Cabins <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+      </a>
+    </div>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+    <div class="service-tile group relative bg-deep p-8 sm:p-10 min-h-[260px] flex flex-col justify-between overflow-hidden">
+      <i data-lucide="droplets" class="h-7 w-7 text-primary-light" stroke-width="2.3"></i>
+      <div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Creek-Side Cabins</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Fall asleep to Campbell Creek just steps from the porch. Stone fireplace and full kitchen included.</p>
+      </div>
+      <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+    </div>
+    <div class="service-tile group relative bg-deep p-8 sm:p-10 min-h-[260px] flex flex-col justify-between overflow-hidden">
+      <i data-lucide="mountain" class="h-7 w-7 text-primary-light" stroke-width="2.3"></i>
+      <div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Mountain View Cabins</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Panoramic Smoky Mountain views from a private porch. Spacious, quiet, unplugged.</p>
+      </div>
+      <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+    </div>
+    <div class="service-tile group relative bg-deep p-8 sm:p-10 min-h-[260px] flex flex-col justify-between overflow-hidden">
+      <i data-lucide="flame" class="h-7 w-7 text-primary-light" stroke-width="2.3"></i>
+      <div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Classic Pioneer Cabins</h3>
+        <p class="text-sm text-white/60 leading-relaxed">The quintessential Smoky Mountain cabin — rustic charm, modern comfort, a covered porch worth staying on.</p>
+      </div>
+      <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+    </div>
+    <div class="service-tile group relative bg-deep p-8 sm:p-10 min-h-[260px] flex flex-col justify-between overflow-hidden">
+      <i data-lucide="laptop" class="h-7 w-7 text-primary-light" stroke-width="2.3"></i>
+      <div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Weekday Getaways</h3>
+        <p class="text-sm text-white/60 leading-relaxed">High-speed WiFi, midweek rates, and thinner crowds — built for remote workers and quiet-seekers.</p>
+      </div>
+      <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+    </div>
+    <div class="service-tile group relative bg-deep p-8 sm:p-10 min-h-[260px] flex flex-col justify-between overflow-hidden">
+      <i data-lucide="users" class="h-7 w-7 text-primary-light" stroke-width="2.3"></i>
+      <div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Group &amp; Village Buyouts</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Rent the whole village for a family reunion, retreat, or corporate getaway. All fourteen cabins, one booking.</p>
+      </div>
+      <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+    </div>
+    <div class="service-tile group relative bg-deep p-8 sm:p-10 min-h-[260px] flex flex-col justify-between overflow-hidden">
+      <i data-lucide="paw-print" class="h-7 w-7 text-primary-light" stroke-width="2.3"></i>
+      <div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Pet-Friendly Stays</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Selected cabins welcome the whole family, four legs included. Ask about our pet-friendly units.</p>
+      </div>
+      <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST SIGNALS ============ -->
+<section id="village" class="py-24 sm:py-32 bg-background">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="trust-badge p-8 rounded-3xl bg-surface border border-divider text-center">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+          <i data-lucide="star" class="h-6 w-6 text-primary-dark" stroke-width="2.3"></i>
+        </div>
+        <h4 class="font-display font-bold text-lg mb-1">5.0 Average Rating</h4>
+        <p class="text-sm text-muted">Across Airbnb, VRBO &amp; Google reviews</p>
+      </div>
+      <div class="trust-badge p-8 rounded-3xl bg-surface border border-divider text-center">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+          <i data-lucide="map-pin" class="h-6 w-6 text-primary-dark" stroke-width="2.3"></i>
+        </div>
+        <h4 class="font-display font-bold text-lg mb-1">2.5 Hrs from Charlotte</h4>
+        <p class="text-sm text-muted">3 hrs Raleigh · 4 hrs Atlanta · 3.5 hrs Knoxville</p>
+      </div>
+      <div class="trust-badge p-8 rounded-3xl bg-surface border border-divider text-center">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+          <i data-lucide="calendar" class="h-6 w-6 text-primary-dark" stroke-width="2.3"></i>
+        </div>
+        <h4 class="font-display font-bold text-lg mb-1">Open Year-Round</h4>
+        <p class="text-sm text-muted">Every season in the Smokies has its own magic</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="relative py-24 sm:py-32 bg-deep grid-bg">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid lg:grid-cols-2 gap-12 items-start">
+    <div>
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-light mb-4">Plan Your Stay</p>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tighter text-white mb-6">We'd love to help you<br/><span class="font-serif italic font-medium text-primary-light">find your cabin.</span></h2>
+      <p class="text-white/60 leading-relaxed max-w-md mb-8">Have a question before you book? Send us a note and we'll point you to the right cabin — or reach the host directly through your chosen listing.</p>
+      <ul class="space-y-4 text-white/70 text-sm">
+        <li class="flex items-center gap-3"><i data-lucide="map-pin" class="h-4 w-4 text-primary-light"></i> 219 Campbell Creek Road, Maggie Valley, NC 28751</li>
+        <li class="flex items-center gap-3"><svg class="h-4 w-4 text-primary-light" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg> facebook.com/PioneerVlg</li>
+        <li class="flex items-center gap-3"><svg class="h-4 w-4 text-primary-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> @pioneervillagenc</li>
+      </ul>
+    </div>
+
+    <form id="contact-form" class="bg-surface rounded-3xl p-6 sm:p-8 shadow-2xl">
+      <div id="form-idle" class="grid sm:grid-cols-2 gap-4">
+        <input required placeholder="Full name" class="col-span-2 sm:col-span-1 px-4 py-3 rounded-xl border border-divider text-sm focus:outline-none focus:ring-2 focus:ring-primary/40" />
+        <input required type="email" placeholder="Email" class="col-span-2 sm:col-span-1 px-4 py-3 rounded-xl border border-divider text-sm focus:outline-none focus:ring-2 focus:ring-primary/40" />
+        <input placeholder="Check-in" onfocus="(this.type='date')" class="px-4 py-3 rounded-xl border border-divider text-sm focus:outline-none focus:ring-2 focus:ring-primary/40" />
+        <input placeholder="Check-out" onfocus="(this.type='date')" class="px-4 py-3 rounded-xl border border-divider text-sm focus:outline-none focus:ring-2 focus:ring-primary/40" />
+        <textarea placeholder="Tell us about your trip..." rows="3" class="col-span-2 px-4 py-3 rounded-xl border border-divider text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"></textarea>
+        <button type="submit" class="col-span-2 magnetic-btn inline-flex justify-center items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg shadow-primary/30">
+          Send Inquiry <i data-lucide="send" class="h-4 w-4"></i>
+        </button>
+      </div>
+      <div id="form-sending" class="hidden py-16 flex flex-col items-center gap-3">
+        <div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <p class="text-sm text-muted font-mono uppercase tracking-[0.15em]">Sending...</p>
+      </div>
+      <div id="form-sent" class="hidden py-16 flex flex-col items-center gap-3 text-center">
+        <i data-lucide="check-circle-2" class="h-10 w-10 text-primary-dark"></i>
+        <p class="font-display font-bold text-lg">Thanks — we'll be in touch.</p>
+        <p class="text-sm text-muted">We typically reply within a day.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-deep border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="lg:col-span-2">
+      <div class="font-display font-bold text-xl text-white mb-2">Pioneer Village</div>
+      <div class="font-mono text-xs uppercase tracking-[0.15em] text-primary-light mb-4">Maggie Valley, NC</div>
+      <p class="text-white/50 text-sm leading-relaxed max-w-sm mb-5">Fourteen rustic cabins nestled along Campbell Creek in the heart of the Smoky Mountains. Open year-round. Pet friendly. Group bookings welcome.</p>
+      <div class="flex gap-3">
+        <a href="https://www.facebook.com/PioneerVlg/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 lift-on-hover"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://www.instagram.com/pioneervillagenc/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 lift-on-hover"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Navigate</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="index.html" class="lift-on-hover">Home</a></li>
+        <li><a href="our-cabins.html" class="lift-on-hover">Our Cabins</a></li>
+        <li><a href="whats-local.html" class="lift-on-hover">What's Local</a></li>
+        <li><a href="about-us.html" class="lift-on-hover">About Us</a></li>
+        <li><a href="events.html" class="lift-on-hover">Area Events</a></li>
+        <li><a href="about-us.html#faq" class="lift-on-hover">FAQs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Book</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="our-cabins.html" class="lift-on-hover">Check Availability</a></li>
+        <li><a href="#contact" class="lift-on-hover">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-6 px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row gap-2 justify-between text-white/40 text-xs font-mono">
+    <span>© 2026 Pioneer Village NC — All Rights Reserved.</span>
+    <span>219 Campbell Creek Rd, Maggie Valley, NC 28751</span>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+  // Hero stagger
+  gsap.from('.hero-meta', { y: 24, opacity: 0, duration: .9, delay: .2, stagger: .12, ease: 'power3.out' });
+  gsap.from('.hero-line-1', { y: 40, opacity: 0, duration: 1, delay: .35, ease: 'power3.out' });
+  gsap.from('.hero-line-2', { y: 60, opacity: 0, duration: 1.2, delay: .55, ease: 'power3.out' });
+  gsap.from('.hero-cta', { y: 24, opacity: 0, duration: .8, delay: .9, ease: 'power3.out' });
+
+  // Feature card reveal
+  gsap.from('.feature-card', {
+    scrollTrigger: { trigger: '#features', start: 'top 80%', once: true },
+    y: 40, opacity: 0, duration: .8, stagger: .15, ease: 'power3.out',
+  });
+
+  // Service tile reveal
+  gsap.from('.service-tile', {
+    scrollTrigger: { trigger: '#cabins', start: 'top 75%', once: true },
+    y: 30, opacity: 0, duration: .6, stagger: .08, ease: 'power3.out',
+  });
+
+  // Trust badge reveal
+  gsap.from('.trust-badge', {
+    scrollTrigger: { trigger: '#village', start: 'top 80%', once: true },
+    y: 30, opacity: 0, duration: .7, stagger: .15, ease: 'power3.out',
+  });
+
+  // Protocol sticky-stack scrub
+  document.querySelectorAll('.protocol-card').forEach((card, i, all) => {
+    if (i === all.length - 1) return;
+    gsap.to(card, {
+      scrollTrigger: { trigger: card, start: 'top top+=100', end: '+=500', scrub: 1 },
+      scale: .92, filter: 'blur(6px) saturate(.7)', opacity: .5, ease: 'none',
     });
+  });
 
-    // ---- Reviews Carousel ----
-    (function () {
-      const section   = document.getElementById('reviews-carousel');
-      const track     = section.querySelector('.carousel-track');
-      const cards     = Array.from(track.querySelectorAll('.review-card'));
-      const prevBtn   = section.querySelector('.carousel-prev');
-      const nextBtn   = section.querySelector('.carousel-next');
-      const dotsWrap  = section.querySelector('.carousel-dots');
-      const TOTAL     = cards.length; // 7
-      const GAP       = 28;           // matches CSS gap
-
-      let currentIndex = 0;
-      let autoTimer    = null;
-
-      function visibleCount() {
-        return window.innerWidth <= 768 ? 1 : 3;
+  // CountUp
+  document.querySelectorAll('.count-up').forEach(el => {
+    const end = parseFloat(el.dataset.end);
+    const decimal = parseInt(el.dataset.decimal || '0');
+    const obs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      const startTs = performance.now();
+      const duration = 1800;
+      function tick(now) {
+        const t = Math.min(1, (now - startTs) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = (end * eased).toFixed(decimal);
+        if (t < 1) requestAnimationFrame(tick);
       }
+      requestAnimationFrame(tick);
+    }, { threshold: .4 });
+    obs.observe(el);
+  });
 
-      function maxIndex() {
-        return TOTAL - visibleCount();
-      }
+  // Cabin shuffler
+  (function () {
+    const imgs = document.querySelectorAll('.shuffler-img');
+    const tagEl = document.getElementById('shuffler-tag');
+    let idx = 0;
+    setInterval(() => {
+      imgs[idx].style.opacity = 0;
+      idx = (idx + 1) % imgs.length;
+      imgs[idx].style.opacity = 1;
+      tagEl.textContent = imgs[idx].dataset.tag;
+    }, 2800);
+  })();
 
-      // Distance to slide one step: card width + one gap
-      function slideAmount() {
-        return cards[0].offsetWidth + GAP;
-      }
+  // Creek status cycler
+  (function () {
+    const statuses = ['leaves falling', 'creek flowing', 'fire crackling', 'porch light on'];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % statuses.length;
+      document.getElementById('creek-status').textContent = statuses[i];
+    }, 2300);
+  })();
 
-      // Build dots from scratch (needed on resize since count may change)
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        const count = maxIndex() + 1;
-        for (let i = 0; i < count; i++) {
-          const btn = document.createElement('button');
-          btn.className = 'carousel-dot';
-          btn.setAttribute('aria-label', 'Slide ' + (i + 1));
-          btn.addEventListener('click', function () { goTo(i); resetAuto(); });
-          dotsWrap.appendChild(btn);
-        }
-      }
+  // Calendar cursor drift
+  (function () {
+    const cursor = document.getElementById('cal-cursor');
+    const spots = [{t:64,l:52},{t:64,l:96},{t:88,l:30},{t:40,l:140}];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % spots.length;
+      cursor.style.top = spots[i].t + 'px';
+      cursor.style.left = spots[i].l + 'px';
+    }, 1900);
+  })();
 
-      function syncDots() {
-        dotsWrap.querySelectorAll('.carousel-dot').forEach(function (d, i) {
-          d.classList.toggle('active', i === currentIndex);
-        });
-      }
+  // Contact form mock states
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('form-idle').classList.add('hidden');
+    document.getElementById('form-sending').classList.remove('hidden');
+    setTimeout(() => {
+      document.getElementById('form-sending').classList.add('hidden');
+      document.getElementById('form-sent').classList.remove('hidden');
+      lucide.createIcons();
+    }, 1100);
+  });
+</script>
 
-      // Wrapping goTo — always stays in [0, maxIndex()]
-      function goTo(i) {
-        var max = maxIndex();
-        // Modulo wrap (handles negative)
-        currentIndex = ((i % (max + 1)) + (max + 1)) % (max + 1);
-        track.style.transform = 'translateX(-' + (currentIndex * slideAmount()) + 'px)';
-        syncDots();
-      }
-
-      function next() { goTo(currentIndex + 1); }
-      function prev() { goTo(currentIndex - 1); }
-
-      function startAuto() {
-        autoTimer = setInterval(next, 5000);
-      }
-
-      function resetAuto() {
-        clearInterval(autoTimer);
-        startAuto();
-      }
-
-      // Arrow clicks
-      nextBtn.addEventListener('click', function () { next(); resetAuto(); });
-      prevBtn.addEventListener('click', function () { prev(); resetAuto(); });
-
-      // Touch / mouse drag
-      var dragStartX = null;
-      var dragging   = false;
-
-      function dragStart(x) { dragStartX = x; dragging = false; }
-      function dragMove(x) {
-        if (dragStartX === null) return;
-        if (Math.abs(x - dragStartX) > 6) dragging = true;
-      }
-      function dragEnd(x) {
-        if (dragStartX === null) return;
-        var delta = x - dragStartX;
-        dragStartX = null;
-        if (Math.abs(delta) < 40) return;
-        if (delta < 0) next(); else prev();
-        resetAuto();
-      }
-
-      // Touch events
-      track.addEventListener('touchstart',  function (e) { dragStart(e.touches[0].clientX); }, { passive: true });
-      track.addEventListener('touchmove',   function (e) { dragMove(e.touches[0].clientX); },  { passive: true });
-      track.addEventListener('touchend',    function (e) { dragEnd(e.changedTouches[0].clientX); });
-
-      // Mouse drag events
-      track.addEventListener('mousedown',   function (e) { dragStart(e.clientX); });
-      track.addEventListener('mousemove',   function (e) { dragMove(e.clientX); });
-      track.addEventListener('mouseup',     function (e) { dragEnd(e.clientX); });
-      track.addEventListener('mouseleave',  function ()  { dragStartX = null; });
-      // Prevent links from firing on a drag
-      track.addEventListener('click',       function (e) { if (dragging) { e.preventDefault(); dragging = false; } });
-
-      // Pause on hover
-      section.addEventListener('mouseenter', function () { clearInterval(autoTimer); });
-      section.addEventListener('mouseleave', startAuto);
-
-      // Recalculate on resize (dot count + slide amount may change)
-      var resizeTimer;
-      window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-          var clamped = Math.min(currentIndex, maxIndex());
-          buildDots();
-          goTo(clamped);
-        }, 150);
-      });
-
-      // Init
-      buildDots();
-      goTo(0);
-      startAuto();
-    })();
-  </script>
-
-  <script>
-    // ---- Gallery Carousel ----
-    (function () {
-      var gc       = document.getElementById('gallery-carousel');
-      var track    = gc.querySelector('.gallery-carousel-track');
-      var slides   = Array.from(track.querySelectorAll('.gallery-carousel-slide'));
-      var prevBtn  = gc.querySelector('.carousel-prev');
-      var nextBtn  = gc.querySelector('.carousel-next');
-      var dotsWrap = document.getElementById('gallery-dots');
-      var TOTAL    = slides.length;
-      var GAP      = 12;
-      var current  = 0;
-
-      function visible() { return window.innerWidth <= 768 ? 1 : 3; }
-      function maxIdx()  { return TOTAL - visible(); }
-      function slideW()  { return slides[0].offsetWidth + GAP; }
-
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        for (var i = 0; i <= maxIdx(); i++) {
-          (function(idx) {
-            var btn = document.createElement('button');
-            btn.className = 'carousel-dot';
-            btn.setAttribute('aria-label', 'Slide ' + (idx + 1));
-            btn.addEventListener('click', function() { goTo(idx); });
-            dotsWrap.appendChild(btn);
-          })(i);
-        }
-      }
-
-      function syncDots() {
-        dotsWrap.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-          d.classList.toggle('active', i === current);
-        });
-      }
-
-      function goTo(i) {
-        var max = maxIdx();
-        current = ((i % (max + 1)) + (max + 1)) % (max + 1);
-        track.style.transform = 'translateX(-' + (current * slideW()) + 'px)';
-        syncDots();
-      }
-
-      prevBtn.addEventListener('click', function() { goTo(current - 1); });
-      nextBtn.addEventListener('click', function() { goTo(current + 1); });
-
-      var resizeTimer;
-      window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-          buildDots();
-          goTo(Math.min(current, maxIdx()));
-        }, 150);
-      });
-
-      buildDots();
-      goTo(0);
-    })();
-  </script>
-
-  <script>
-    // Fire conversion events when a visitor clicks any VRBO or Airbnb booking link
-    document.querySelectorAll('a[href*="vrbo.com"], a[href*="airbnb.com"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
-        if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
-      });
+<script>
+  // Fire conversion events when a visitor clicks any VRBO or Airbnb booking link
+  document.querySelectorAll('a[href*="vrbo.com"], a[href*="airbnb.com"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
+      if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
     });
-  </script>
-
-  <div style="position: fixed; bottom: 16px; right: 16px; font-family: Arial, sans-serif; font-size: 12px; color: #999; z-index: 10;">test</div>
+  });
+</script>
 
 </body>
 </html>

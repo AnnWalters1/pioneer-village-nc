@@ -8,7 +8,6 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Pioneer Village NC" />
   <meta property="og:url" content="https://pioneervillagenc.com/about-us.html" />
@@ -99,355 +98,294 @@
     ]
   }
   </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">Pioneer Village</span>
-      <span class="nav-logo-sub">Maggie Valley, NC</span>
-    </a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="our-cabins.html">Our Cabins</a></li>
-      <li><a href="whats-local.html">What's Local</a></li>
-      <li><a href="about-us.html" class="active">About Us</a></li>
-      <li>
-        <a href="our-cabins.html#cabin-grid" class="nav-book-btn">Book Now</a>
-      </li>
-    </ul>
-  </nav>
+<body class="font-body">
+<div class="noise-overlay"></div>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('pv-creek.jpg');"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <p class="section-label">Our Story</p>
-      <h1>A Place Built for Getting Away</h1>
-      <p>Pioneer Village, Maggie Valley, NC</p>
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 mt-4">
+    <div id="nav-pill" class="flex items-center justify-between rounded-full px-5 sm:px-6 py-3 transition-all duration-300">
+      <a href="index.html" class="flex items-baseline gap-2">
+        <span class="font-display font-bold text-lg tracking-tight" id="nav-brand">Pioneer Village</span>
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em]" id="nav-brand-sub">Maggie Valley, NC</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8 font-medium text-sm" id="nav-links">
+        <a href="index.html" class="lift-on-hover">Home</a>
+        <a href="our-cabins.html" class="lift-on-hover">Our Cabins</a>
+        <a href="whats-local.html" class="lift-on-hover">What's Local</a>
+        <a href="about-us.html" class="lift-on-hover text-primary-dark font-semibold">About Us</a>
+      </div>
+      <a href="our-cabins.html#cabin-grid" class="hidden lg:inline-flex magnetic-btn items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-primary/30">
+        Book Now
+      </a>
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="w-6 h-0.5 bg-current"></span>
+        <span class="w-6 h-0.5 bg-current"></span>
+        <span class="w-6 h-0.5 bg-current"></span>
+      </button>
     </div>
-  </section>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden mx-5 mt-2 rounded-3xl glass-dark text-white p-6 flex flex-col gap-5 font-medium">
+    <a href="index.html">Home</a>
+    <a href="our-cabins.html">Our Cabins</a>
+    <a href="whats-local.html">What's Local</a>
+    <a href="about-us.html" class="text-primary-light">About Us</a>
+    <a href="our-cabins.html#cabin-grid" class="magnetic-btn inline-flex justify-center items-center gap-2 bg-primary text-white px-5 py-3 rounded-full font-semibold text-sm">Book Now</a>
+  </div>
+</nav>
 
-  <!-- ABOUT SECTION -->
-  <section>
-    <div class="about-page-section">
-      <div>
-        <h2>Welcome to Pioneer Village</h2>
+<main>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="relative h-[56vh] min-h-[420px] flex items-end overflow-hidden">
+  <img src="pv-creek.jpg" alt="Campbell Creek at Pioneer Village" class="absolute inset-0 w-full h-full object-cover brightness-[0.35]" />
+  <div class="absolute inset-0 bg-gradient-to-b from-deep/70 via-deep/40 to-deep/90"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-16 w-full">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-light mb-4">Our Story</p>
+    <h1 class="page-hero-title font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tighter max-w-3xl">A Place Built for <span class="font-serif italic font-medium text-primary-light">Getting Away</span></h1>
+    <p class="mt-5 text-white/70 max-w-xl text-base sm:text-lg">Pioneer Village, Maggie Valley, NC</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="py-20 sm:py-28 bg-background">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">Welcome to Pioneer Village</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tighter text-ink mb-6">A resort built on quiet.</h2>
+      <div class="space-y-4 text-muted leading-relaxed">
         <p>Pioneer Village is a 14-cabin resort tucked along Campbell Creek in Maggie Valley, North Carolina — right in the heart of the Great Smoky Mountains. The property has been welcoming guests for years, and under new ownership, we're focused on making every stay better than the last.</p>
         <p>The cabins are rustic by design. Stone fireplaces, wooden porches, full kitchens, and the kind of quiet that city life doesn't offer. You can hear the creek from most of them. Some mornings you'll see deer. Some evenings the mountain fog rolls in low and everything gets still.</p>
         <p>We think that's exactly the point.</p>
         <p>Whether you're booking one cabin for a couple's getaway, four cabins for a family reunion, or the entire village for a corporate retreat, we're here to make it easy. Reach out with any questions — we know the area well and we're happy to help you plan.</p>
       </div>
-      <div>
-        <img src="pv-main.jpg" alt="Pioneer Village property view" loading="lazy" />
+    </div>
+    <div class="reveal rounded-3xl overflow-hidden shadow-2xl">
+      <img src="pv-main.jpg" alt="Pioneer Village property view" loading="lazy" class="w-full h-full object-cover" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="py-20 sm:py-24 bg-deep grid-bg">
+  <div class="max-w-5xl mx-auto px-6 grid sm:grid-cols-3 gap-10 text-center reveal-group">
+    <div>
+      <div class="font-display text-5xl font-extrabold text-white">14</div>
+      <div class="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto my-4 pillar-sweep"></div>
+      <p class="font-mono text-xs uppercase tracking-[0.18em] text-white/60">Unique Cabins</p>
+    </div>
+    <div>
+      <div class="font-display text-5xl font-extrabold text-white">1957</div>
+      <div class="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto my-4 pillar-sweep"></div>
+      <p class="font-mono text-xs uppercase tracking-[0.18em] text-white/60">Established in Maggie Valley</p>
+    </div>
+    <div>
+      <div class="font-display text-5xl font-extrabold text-white">50+</div>
+      <div class="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto my-4 pillar-sweep"></div>
+      <p class="font-mono text-xs uppercase tracking-[0.18em] text-white/60">Happy Groups Hosted</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GROUPS ============ -->
+<section id="groups" class="py-24 sm:py-28 bg-background">
+  <div class="max-w-3xl mx-auto px-6 text-center reveal">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">Group Bookings</p>
+    <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tighter text-ink mb-6">Planning a Group Trip?</h2>
+    <p class="text-muted leading-relaxed mb-4">Pioneer Village is the rare property that can host a large group without losing the cabin experience. With 14 individually unique cabins on one property, groups of 20, 40, even 50+ can spread out while staying together. We've hosted family reunions, corporate retreats, wedding parties, and church groups.</p>
+    <p class="text-muted leading-relaxed mb-8">Reach out to discuss full-village buyout pricing, group rates, and availability. Weekday group bookings are especially welcome. For group bookings or custom pricing, reach out through any of our Vrbo or Airbnb listings and we'll get back to you promptly.</p>
+    <a href="our-cabins.html#cabin-grid" class="magnetic-btn inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg shadow-primary/30">View All Cabin Listings <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-20 sm:py-28 bg-surface">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">FAQ</p>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tighter text-ink">Frequently Asked Questions</h2>
+      <p class="text-muted mt-4">Everything you need to know before you book.</p>
+    </div>
+
+    <div class="space-y-3" id="faq-list">
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          What time is check-in and check-out?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">Check-in is at 3:00 PM and check-out is at 11:00 AM. Early check-in or late check-out may be available depending on availability — just ask when you book.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          Are pets allowed?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">Yes — Pioneer Village is pet friendly. Some cabins are more suitable for pets than others. Check the individual cabin listing on VRBO or Airbnb for pet policies and any applicable fees.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          How do I book a cabin?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">All reservations are currently made through VRBO or Airbnb. Click "Book Now" on any page to see availability and pricing for your dates. For group bookings, contact us directly.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          Can I rent multiple cabins at once?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">Absolutely — and it's one of the best ways to enjoy Pioneer Village. Groups can rent 2, 4, or all 14 cabins depending on your group size. Contact us for group rates.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          What amenities are included in every cabin?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">Every cabin includes a stone fireplace, full kitchen, private porch with rocking chairs, and linens. Most cabins also have washer/dryer access. Specific amenities vary by cabin.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          Is WiFi available?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">Yes, WiFi is available. The Smoky Mountains are rural, so speeds may not match a city connection, but it's reliable enough for video calls and remote work.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          What is the cancellation policy?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">Cancellation policies are managed through VRBO and Airbnb and vary by listing. Check the cancellation policy on your specific cabin listing before booking.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          What's nearby? Is there anything to do?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">You're minutes from the Blue Ridge Parkway, Cataloochee Ski Area, the Maggie Valley Festival Grounds, and multiple hiking trailheads. Waynesville is about 10–15 minutes away. See our <a href="whats-local.html" class="text-primary-dark underline">What's Local page</a> for the full rundown.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          Is there a minimum stay requirement?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">Minimum stay requirements vary by cabin and season. Most cabins require a 2-night minimum, with longer minimums during peak fall foliage season and holidays.</p></div>
+      </div>
+
+      <div class="faq-item border border-divider rounded-2xl overflow-hidden">
+        <button class="faq-question w-full flex items-center justify-between text-left px-6 py-5 font-display font-semibold">
+          How do I contact Pioneer Village directly?
+          <span class="faq-chevron"><i data-lucide="chevron-down" class="h-5 w-5 text-primary-dark"></i></span>
+        </button>
+        <div class="faq-answer px-6"><p class="pb-5 text-muted leading-relaxed">For questions about a specific cabin, reach out through that cabin's Vrbo or Airbnb listing — we'll get back to you there. You'll find the booking link for each cabin on our <a href="our-cabins.html#cabin-grid" class="text-primary-dark underline">Our Cabins page</a>.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="relative py-24 sm:py-28 bg-deep grid-bg">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-light mb-4">Get In Touch</p>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tighter text-white mb-6">We'd Love to Help You<br/><span class="font-serif italic font-medium text-primary-light">Plan Your Stay.</span></h2>
+      <p class="text-white/60 leading-relaxed max-w-md mb-8">Have a question about a cabin? Message the host directly through that cabin's Vrbo or Airbnb listing — we're responsive and happy to help.</p>
+      <ul class="space-y-4 text-white/70 text-sm">
+        <li class="flex items-center gap-3"><i data-lucide="map-pin" class="h-4 w-4 text-primary-light"></i> 219 Campbell Creek Road, Maggie Valley, NC 28751</li>
+        <li class="flex items-center gap-3"><i data-lucide="message-circle" class="h-4 w-4 text-primary-light"></i> Cabin questions? Reach out through the <a href="our-cabins.html#cabin-grid" class="text-primary-light underline">Vrbo or Airbnb listing</a> for that cabin.</li>
+        <li class="flex items-center gap-3"><i data-lucide="help-circle" class="h-4 w-4 text-primary-light"></i> <a href="#faq" class="text-primary-light underline">Visit our FAQ section ↑</a></li>
+      </ul>
+    </div>
+    <div class="rounded-3xl overflow-hidden shadow-2xl h-80">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.723!2d-83.10056!3d35.51223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88598a41c3a2addf%3A0x5a76f69c0fdbf4f0!2s219+Campbell+Creek+Rd%2C+Maggie+Valley%2C+NC+28751!5e0!3m2!1sen!2sus!4v1234567890"
+        class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pioneer Village location map"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-deep border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="lg:col-span-2">
+      <div class="font-display font-bold text-xl text-white mb-2">Pioneer Village</div>
+      <div class="font-mono text-xs uppercase tracking-[0.15em] text-primary-light mb-4">Maggie Valley, NC</div>
+      <p class="text-white/50 text-sm leading-relaxed max-w-sm mb-5">Fourteen rustic cabins nestled along Campbell Creek in the heart of the Smoky Mountains. Open year-round. Pet friendly. Group bookings welcome.</p>
+      <div class="flex gap-3">
+        <a href="https://www.facebook.com/PioneerVlg/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 lift-on-hover"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://www.instagram.com/pioneervillagenc/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 lift-on-hover"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
       </div>
     </div>
-  </section>
-
-  <!-- PROPERTY HIGHLIGHTS -->
-  <section class="stats-section">
-    <div class="stats-inner">
-      <div class="stat-card">
-        <div class="stat-num">14</div>
-        <div class="stat-label">Unique Cabins</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">1957</div>
-        <div class="stat-label">Established in Maggie Valley</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">50+</div>
-        <div class="stat-label">Happy Groups Hosted</div>
-      </div>
+    <div>
+      <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Navigate</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="index.html" class="lift-on-hover">Home</a></li>
+        <li><a href="our-cabins.html" class="lift-on-hover">Our Cabins</a></li>
+        <li><a href="whats-local.html" class="lift-on-hover">What's Local</a></li>
+        <li><a href="about-us.html" class="lift-on-hover">About Us</a></li>
+        <li><a href="events.html" class="lift-on-hover">Area Events</a></li>
+        <li><a href="about-us.html#faq" class="lift-on-hover">FAQs</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- GROUPS SECTION -->
-  <section class="groups-section" id="groups">
-    <div class="groups-section-inner">
-      <p class="section-label" style="text-align:center;">Group Bookings</p>
-      <h2>Planning a Group Trip?</h2>
-      <p>Pioneer Village is the rare property that can host a large group without losing the cabin experience. With 14 individually unique cabins on one property, groups of 20, 40, even 50+ can spread out while staying together. We've hosted family reunions, corporate retreats, wedding parties, and church groups.</p>
-      <p>Reach out to discuss full-village buyout pricing, group rates, and availability. Weekday group bookings are especially welcome.</p>
-      <p style="font-size:15px;color:var(--text-mid);margin-top:-20px;margin-bottom:32px;">For group bookings, questions about full-village availability, or custom pricing — reach out through any of our Vrbo or Airbnb listings and we'll get back to you promptly. Use whichever platform works best for you.</p>
-      <a href="our-cabins.html#cabin-grid" class="btn btn-gold">View All Cabin Listings →</a>
+    <div>
+      <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Book</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="our-cabins.html#cabin-grid" class="lift-on-hover">Check Availability</a></li>
+        <li><a href="about-us.html#contact" class="lift-on-hover">Contact Us</a></li>
+      </ul>
     </div>
-  </section>
+  </div>
+  <div class="border-t border-white/10 py-6 px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row gap-2 justify-between text-white/40 text-xs font-mono">
+    <span>© 2026 Pioneer Village NC — All Rights Reserved.</span>
+    <span>219 Campbell Creek Rd, Maggie Valley, NC 28751</span>
+  </div>
+</footer>
 
-  <!-- FAQ SECTION -->
-  <section class="faq-section" id="faq">
-    <div class="faq-section-inner">
-      <div class="section-header">
-        <p class="section-label">FAQ</p>
-        <h2>Frequently Asked Questions</h2>
-        <p>Everything you need to know before you book.</p>
-      </div>
-
-      <div class="faq-list">
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            What time is check-in and check-out?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Check-in is at 3:00 PM and check-out is at 11:00 AM. Early check-in or late check-out may be available depending on availability — just ask when you book.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Are pets allowed?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Yes — Pioneer Village is pet friendly. Some cabins are more suitable for pets than others. Check the individual cabin listing on VRBO or Airbnb for pet policies and any applicable fees. Please keep pets off furniture and clean up after them on the property.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            How do I book a cabin?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              All reservations are currently made through VRBO or Airbnb. Click the "Book a Cabin" button on any page to see availability and pricing for your dates. For group bookings or questions about renting multiple cabins, contact us directly.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Can I rent multiple cabins at once?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Absolutely — and it's one of the best ways to enjoy Pioneer Village. Groups can rent 2, 4, or all 14 cabins depending on your group size. The whole property functions as a private village when you book out multiple units. Contact us for group rates.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            What amenities are included in every cabin?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Every cabin at Pioneer Village includes a stone fireplace, full kitchen, private porch with rocking chairs, and linens. Most cabins also have washer/dryer access. Specific amenities vary by cabin — check the individual listing for full details.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Is WiFi available?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Yes, WiFi is available. The Smoky Mountains are rural, so speeds may not match a city connection, but it's reliable enough for video calls and remote work. Great for a working retreat.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            What is the cancellation policy?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Cancellation policies are managed through VRBO and Airbnb and vary by listing. Check the cancellation policy on your specific cabin listing before booking. For questions about flexibility, contact us directly.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            What's nearby? Is there anything to do?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Plenty. You're minutes from the Blue Ridge Parkway, Cataloochee Ski Area, the Maggie Valley Festival Grounds, and multiple hiking trailheads. Waynesville (full restaurants, grocery stores, shops) is about 10–15 minutes away. The Great Smoky Mountains National Park is about 30 minutes. See our <a href="whats-local.html">What's Local page</a> for the full rundown.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Is there a minimum stay requirement?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Minimum stay requirements vary by cabin and season. Most cabins require a 2-night minimum, with longer minimums during peak fall foliage season and holidays. Check your dates on the listing for specifics.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            How do I contact Pioneer Village directly?
-            <span class="faq-chevron">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              For questions about a specific cabin, reach out through that cabin's Vrbo or Airbnb listing — we'll get back to you there. You'll find the booking link for each cabin on our <a href="our-cabins.html#cabin-grid">Our Cabins page</a>.
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT STRIP -->
-  <section class="contact-strip" id="contact">
-    <div class="contact-strip-inner">
-      <div class="contact-info">
-        <p class="section-label">Get In Touch</p>
-        <h2>We'd Love to Help You Plan Your Stay</h2>
-        <p>Have a question about a cabin? Message the host directly through that cabin's Vrbo or Airbnb listing — we're responsive and happy to help you plan your stay.</p>
-        <ul class="contact-details">
-          <li>
-            <span>📍</span>
-            <span>219 Campbell Creek Road, Maggie Valley, NC 28751</span>
-          </li>
-          <li>
-            <span>💬</span>
-            <span>Cabin questions? Reach out through the <a href="our-cabins.html#cabin-grid">Vrbo or Airbnb listing</a> for that cabin — we'll get back to you there!</span>
-          </li>
-          <li>
-            <span>❓</span>
-            <span><a href="#faq">Visit our FAQ section ↑</a></span>
-          </li>
-        </ul>
-      </div>
-      <div class="contact-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.723!2d-83.10056!3d35.51223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88598a41c3a2addf%3A0x5a76f69c0fdbf4f0!2s219+Campbell+Creek+Rd%2C+Maggie+Valley%2C+NC+28751!5e0!3m2!1sen!2sus!4v1234567890"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pioneer Village location map"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">Pioneer Village</div>
-        <div class="footer-brand-sub">Maggie Valley, NC</div>
-        <p class="footer-brand-desc">14 rustic cabins nestled along Campbell Creek in the heart of the Smoky Mountains. Open year-round. Pet friendly. Group bookings welcome.</p>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="https://www.facebook.com/PioneerVlg/" class="footer-fb-link" target="_blank" rel="noopener">
-            <span class="footer-fb-icon">f</span>
-            Follow us on Facebook
-          </a>
-          <a href="https://www.instagram.com/pioneervillagenc/" class="footer-fb-link" target="_blank" rel="noopener">
-            <span class="footer-fb-icon">📷</span>
-            Follow us on Instagram
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="our-cabins.html">Our Cabins</a></li>
-          <li><a href="whats-local.html">What's Local</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="events.html">Area Events</a></li>
-          <li><a href="about-us.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Book</h4>
-        <ul>
-          <li><a href="our-cabins.html">Check Availability</a></li>
-          <li><a href="index.html#weekday">Weekday Deals</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Pioneer Village NC — All Rights Reserved.</span>
-      <span>219 Campbell Creek Rd, Maggie Valley, NC 28751</span>
-    </div>
-  </footer>
-
-  <script>
-    // Hamburger menu
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open');
+<script src="assets/site.js"></script>
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
     });
+  });
+</script>
 
-    // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-
-        // Close all
-        document.querySelectorAll('.faq-item').forEach(el => {
-          el.classList.remove('open');
-          el.querySelector('.faq-question').classList.remove('open');
-          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-
-        // Open clicked if it was closed
-        if (!isOpen) {
-          item.classList.add('open');
-          btn.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
+<script>
+  // Fire conversion events when a visitor clicks any VRBO or Airbnb booking link
+  document.querySelectorAll('a[href*="vrbo.com"], a[href*="airbnb.com"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
+      if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
     });
-  </script>
-
-  <script>
-    // Fire conversion events when a visitor clicks any VRBO or Airbnb booking link
-    document.querySelectorAll('a[href*="vrbo.com"], a[href*="airbnb.com"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
-        if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
-      });
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>

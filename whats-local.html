@@ -8,7 +8,6 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Pioneer Village NC" />
   <meta property="og:url" content="https://pioneervillagenc.com/whats-local.html" />
@@ -41,437 +40,377 @@
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1702725637740990&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">Pioneer Village</span>
-      <span class="nav-logo-sub">Maggie Valley, NC</span>
-    </a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="our-cabins.html">Our Cabins</a></li>
-      <li><a href="whats-local.html" class="active">What's Local</a></li>
-      <li><a href="about-us.html">About Us</a></li>
-      <li>
-        <a href="our-cabins.html#cabin-grid" class="nav-book-btn">Book Now</a>
-      </li>
-    </ul>
-  </nav>
+<body class="font-body">
+<div class="noise-overlay"></div>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('cabin5-mountain.jpg');"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <p class="section-label">What's Nearby</p>
-      <h1>The Best of the Smoky Mountains, Right Outside Your Door</h1>
-      <p>You came to explore. Here's where to start.</p>
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 mt-4">
+    <div id="nav-pill" class="flex items-center justify-between rounded-full px-5 sm:px-6 py-3 transition-all duration-300">
+      <a href="index.html" class="flex items-baseline gap-2">
+        <span class="font-display font-bold text-lg tracking-tight" id="nav-brand">Pioneer Village</span>
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em]" id="nav-brand-sub">Maggie Valley, NC</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8 font-medium text-sm" id="nav-links">
+        <a href="index.html" class="lift-on-hover">Home</a>
+        <a href="our-cabins.html" class="lift-on-hover">Our Cabins</a>
+        <a href="whats-local.html" class="lift-on-hover text-primary-dark font-semibold">What's Local</a>
+        <a href="about-us.html" class="lift-on-hover">About Us</a>
+      </div>
+      <a href="our-cabins.html#cabin-grid" class="hidden lg:inline-flex magnetic-btn items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-primary/30">
+        Book Now
+      </a>
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="w-6 h-0.5 bg-current"></span>
+        <span class="w-6 h-0.5 bg-current"></span>
+        <span class="w-6 h-0.5 bg-current"></span>
+      </button>
     </div>
-  </section>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden mx-5 mt-2 rounded-3xl glass-dark text-white p-6 flex flex-col gap-5 font-medium">
+    <a href="index.html">Home</a>
+    <a href="our-cabins.html">Our Cabins</a>
+    <a href="whats-local.html" class="text-primary-light">What's Local</a>
+    <a href="about-us.html">About Us</a>
+    <a href="our-cabins.html#cabin-grid" class="magnetic-btn inline-flex justify-center items-center gap-2 bg-primary text-white px-5 py-3 rounded-full font-semibold text-sm">Book Now</a>
+  </div>
+</nav>
 
-  <!-- INTRO BAND -->
-  <section class="local-intro-band">
-    <div class="local-intro-grid">
-      <div class="local-intro-item">
-        <div class="local-intro-icon">🏔️</div>
-        <h4>Mountains &amp; Adventure</h4>
-        <p>Hike, ski, tube, and explore — the Blue Ridge Parkway, Smoky Mountains, and Soco Falls are minutes from your door.</p>
-      </div>
-      <div class="local-intro-item">
-        <div class="local-intro-icon">🎶</div>
-        <h4>Events All Year</h4>
-        <p>Bike rallies, Oktoberfest, Folkmoot, and Winterfest — the valley stays busy no matter when you visit.</p>
-      </div>
-      <div class="local-intro-item">
-        <div class="local-intro-icon">🍽️</div>
-        <h4>Dining &amp; Day Trips</h4>
-        <p>Local diners, craft breweries, and artisan markets — plus Waynesville and Asheville just a short drive away.</p>
-      </div>
+<main>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="relative h-[56vh] min-h-[420px] flex items-end overflow-hidden">
+  <img src="cabin5-mountain.jpg" alt="Mountain view near Pioneer Village" class="absolute inset-0 w-full h-full object-cover brightness-[0.35]" />
+  <div class="absolute inset-0 bg-gradient-to-b from-deep/70 via-deep/40 to-deep/90"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-16 w-full">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-light mb-4">What's Nearby</p>
+    <h1 class="page-hero-title font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tighter max-w-3xl">The Best of the Smokies, <span class="font-serif italic font-medium text-primary-light">Right Outside Your Door</span></h1>
+    <p class="mt-5 text-white/70 max-w-xl text-base sm:text-lg">You came to explore. Here's where to start.</p>
+  </div>
+</section>
+
+<!-- ============ INTRO BAND ============ -->
+<section class="py-16 bg-surface border-b border-divider">
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-3 gap-10 reveal-group">
+    <div class="text-center">
+      <div class="text-3xl mb-3">🏔️</div>
+      <h4 class="font-display font-bold mb-2">Mountains &amp; Adventure</h4>
+      <p class="text-sm text-muted leading-relaxed">Hike, ski, tube, and explore — the Blue Ridge Parkway, Smoky Mountains, and Soco Falls are minutes from your door.</p>
     </div>
-  </section>
-
-  <!-- UPCOMING EVENTS PREVIEW -->
-  <section class="events-section">
-    <div class="events-section-inner">
-      <div class="section-header" style="margin-bottom:12px;">
-        <p class="section-label">Upcoming Events</p>
-        <h2>What's Happening in Maggie Valley</h2>
-      </div>
-      <p class="events-subtext">The valley stays busy year-round. Here are three highlights — and there's always more going on.</p>
-      <div class="events-grid" style="grid-template-columns: repeat(3,1fr); margin-bottom:40px;">
-
-        <div class="event-card">
-          <div class="event-icon">🏍️</div>
-          <h3>Maggie Valley Bike Week</h3>
-          <p>Thousands of riders roll into Maggie Valley every June for one of the Southeast's premier motorcycle rallies. Live music, vendors, and mountain cruising.</p>
-          <div class="event-when">June annually</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🌍</div>
-          <h3>Folkmoot USA</h3>
-          <p>An internationally acclaimed cultural festival bringing folk dancers and musicians from around the world to Western NC stages. Colorful, joyful, and unlike anything else in the mountains.</p>
-          <div class="event-when">Late July annually</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🍺</div>
-          <h3>Maggie Valley Oktoberfest</h3>
-          <p>Authentic German food, cold beer, live music, and dancing at the Maggie Valley Festival Grounds. One of the best Oktoberfest events in the Southeast — book your cabin early.</p>
-          <div class="event-when">October annually</div>
-        </div>
-
-      </div>
-      <div class="text-center">
-        <a href="events.html" class="btn btn-outline-dark" style="margin-right:16px;">See All Area Events</a>
-        <a href="https://www.maggievalleync.gov/event-category/event-and-festival-schedules/" target="_blank" rel="noopener" class="btn btn-gold">Official Events Calendar →</a>
-      </div>
+    <div class="text-center">
+      <div class="text-3xl mb-3">🎶</div>
+      <h4 class="font-display font-bold mb-2">Events All Year</h4>
+      <p class="text-sm text-muted leading-relaxed">Bike rallies, Oktoberfest, Folkmoot, and Winterfest — the valley stays busy no matter when you visit.</p>
     </div>
-  </section>
+    <div class="text-center">
+      <div class="text-3xl mb-3">🍽️</div>
+      <h4 class="font-display font-bold mb-2">Dining &amp; Day Trips</h4>
+      <p class="text-sm text-muted leading-relaxed">Local diners, craft breweries, and artisan markets — plus Waynesville and Asheville just a short drive away.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- OUTDOOR ADVENTURES -->
-  <section style="padding: 80px 40px; background: var(--warm-white);">
-    <div style="max-width:1100px;margin:0 auto;">
-      <div class="section-header" style="margin-bottom:48px;">
-        <p class="section-label">Outdoor Adventures</p>
-        <h2>Get Outside</h2>
+<!-- ============ UPCOMING EVENTS PREVIEW ============ -->
+<section class="py-20 bg-background">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-4">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">Upcoming Events</p>
+      <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink">What's Happening in Maggie Valley</h2>
+      <p class="text-muted mt-3">The valley stays busy year-round. Here are three highlights — and there's always more going on.</p>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-6 mt-12 reveal-group">
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🏍️</div>
+        <h3 class="font-display font-bold mb-2">Maggie Valley Bike Week</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">Thousands of riders roll into Maggie Valley every June for one of the Southeast's premier motorcycle rallies.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.1em] text-primary-dark">June annually</div>
       </div>
-      <div class="attraction-items">
-
-        <div class="attraction-item">
-          <div class="attraction-icon">🥾</div>
-          <div>
-            <h3>Blue Ridge Parkway</h3>
-            <p>One of America's most scenic drives runs just minutes from Pioneer Village. Dozens of overlooks, hiking trailheads, and pull-offs for wildlife watching. Best in fall for foliage.</p>
-            <div class="attraction-distance">~10 minutes from Pioneer Village</div>
-          </div>
-        </div>
-
-        <div class="attraction-item">
-          <div class="attraction-icon">🌊</div>
-          <div>
-            <h3>Tubing &amp; Whitewater</h3>
-            <p>The Nantahala River and local creeks offer everything from gentle tubing to serious whitewater. Nantahala Outdoor Center is a short drive and rents gear for all skill levels.</p>
-            <div class="attraction-distance">~45 minutes to Nantahala Gorge</div>
-          </div>
-        </div>
-
-        <div class="attraction-item">
-          <div class="attraction-icon">🏔️</div>
-          <div>
-            <h3>Great Smoky Mountains National Park</h3>
-            <p>The most visited national park in America is right in your backyard. Hike to waterfalls, spot black bears, or drive through Cades Cove. No reservations needed for most trails.</p>
-            <div class="attraction-distance">~30 minutes to park entrance</div>
-          </div>
-        </div>
-
-        <div class="attraction-item">
-          <div class="attraction-icon">🎿</div>
-          <div>
-            <h3>Cataloochee Ski Area</h3>
-            <p>Western North Carolina's premier ski resort is minutes away. Skiing, snowboarding, and tubing in winter. Great for families.</p>
-            <div class="attraction-distance">~15 minutes from Pioneer Village</div>
-          </div>
-        </div>
-
-        <div class="attraction-item">
-          <div class="attraction-icon">💧</div>
-          <div>
-            <h3>Soco Falls</h3>
-            <p>A short, easy trail leads to a stunning double waterfall right off the main road. One of the most accessible and beautiful waterfalls in Western NC. Worth every step.</p>
-            <div class="attraction-distance">~5 minutes from Pioneer Village</div>
-          </div>
-        </div>
-
-        <div class="attraction-item">
-          <div class="attraction-icon">🦌</div>
-          <div>
-            <h3>Cataloochee Valley Elk Watching</h3>
-            <p>Drive into Cataloochee Valley at dawn or dusk to see free-roaming elk in open fields. One of the only places in the eastern US where you can see elk in the wild. Unforgettable.</p>
-            <div class="attraction-distance">~30 minutes from Pioneer Village</div>
-          </div>
-        </div>
-
-        <div class="attraction-item">
-          <div class="attraction-icon">🌅</div>
-          <div>
-            <h3>Waterrock Knob</h3>
-            <p>One of the most accessible high-elevation overlooks on the Blue Ridge Parkway. Stunning 360-degree views, especially at sunset. Short trail to the summit.</p>
-            <div class="attraction-distance">~20 minutes from Pioneer Village</div>
-          </div>
-        </div>
-
-        <div class="attraction-item">
-          <div class="attraction-icon">🚣</div>
-          <div>
-            <h3>Lake Junaluska</h3>
-            <p>A scenic lake with a 2.8-mile walking trail around the shoreline. Canoe and kayak rentals available. Great for an easy, peaceful morning with the family.</p>
-            <div class="attraction-distance">~15 minutes from Pioneer Village</div>
-          </div>
-        </div>
-
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🌍</div>
+        <h3 class="font-display font-bold mb-2">Folkmoot USA</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">An internationally acclaimed cultural festival bringing folk dancers and musicians from around the world.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.1em] text-primary-dark">Late July annually</div>
+      </div>
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🍺</div>
+        <h3 class="font-display font-bold mb-2">Maggie Valley Oktoberfest</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">Authentic German food, cold beer, live music, and dancing at the Maggie Valley Festival Grounds.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.1em] text-primary-dark">October annually</div>
       </div>
     </div>
-  </section>
-
-  <!-- FAMILY FUN -->
-  <section class="events-section">
-    <div class="events-section-inner">
-      <div class="section-header" style="margin-bottom:12px;">
-        <p class="section-label">Family Fun</p>
-        <h2>Fun for All Ages</h2>
-      </div>
-      <p class="events-subtext">You don't have to go far to have a great time.</p>
-      <div class="events-grid events-grid--4col">
-
-        <div class="event-card">
-          <div class="event-icon">🛷</div>
-          <h3>Tube World</h3>
-          <p>Snow tubing in winter, fun for all ages. Located at the base of Cataloochee Ski Area. Great for families looking for something beyond the slopes.</p>
-          <div class="event-when">~15 minutes from Pioneer Village</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🏍️</div>
-          <h3>Wheels Through Time Museum</h3>
-          <p>A 38,000 sq ft museum with over 350 rare American motorcycles and vintage cars. Open April–November. A bucket-list stop for car and motorcycle enthusiasts.</p>
-          <div class="event-when">~5 minutes · Open April – November</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">⛳</div>
-          <h3>Maggie Valley Club Golf Course</h3>
-          <p>An 18-hole championship course set against Smoky Mountain views. One of the most scenic golf courses in Western NC. Tee times available year-round.</p>
-          <div class="event-when">~5 minutes from Pioneer Village</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🏌️</div>
-          <h3>Miniature Golf</h3>
-          <p>Casual family fun right in Maggie Valley. A classic vacation activity for kids and adults alike. Easy to fit into any afternoon.</p>
-          <div class="event-when">~5 minutes from Pioneer Village</div>
-        </div>
-
-      </div>
+    <div class="text-center mt-10 flex flex-wrap gap-3 justify-center">
+      <a href="events.html" class="magnetic-btn inline-flex items-center gap-2 border border-primary text-primary-dark px-6 py-3 rounded-full font-semibold">See All Area Events</a>
+      <a href="https://www.maggievalleync.gov/event-category/event-and-festival-schedules/" target="_blank" rel="noopener" class="magnetic-btn inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg shadow-primary/30">Official Events Calendar →</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- LOCAL EVENTS -->
-  <section style="padding: 80px 40px; background: var(--warm-white);">
-    <div style="max-width:1100px;margin:0 auto;">
-      <div class="section-header" style="margin-bottom:12px;">
-        <p class="section-label">Local Events</p>
-        <h2>Events in Maggie Valley</h2>
-      </div>
-      <p class="events-subtext" style="text-align:center;color:var(--text-light);font-size:15px;margin-bottom:48px;">The calendar stays full. Here are the highlights.</p>
-      <div class="events-grid events-grid--centered">
-
-        <div class="event-card">
-          <div class="event-icon">🏍️</div>
-          <h3>Thunder in the Smokies Motorcycle Rally</h3>
-          <p>Three separate rallies throughout the year draw thousands of riders to Maggie Valley. The town comes alive with bikes, music, and vendors. Great for spectators too.</p>
-          <div class="event-when">Spring, Summer &amp; Fall — multiple weekends annually</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🍺</div>
-          <h3>Maggie Valley Oktoberfest</h3>
-          <p>One of the Southeast's best Oktoberfest celebrations takes over the Festival Grounds with authentic German food, beer, live music, and dancing. Book early — this weekend fills up fast.</p>
-          <div class="event-when">October annually</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">❄️</div>
-          <h3>Smoky Mountain Winterfest</h3>
-          <p>Light displays, holiday events, and winter activities from November through February. A magical time to visit the mountains.</p>
-          <div class="event-when">November – February</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🎨</div>
-          <h3>Fall Arts &amp; Crafts Show</h3>
-          <p>Local artisans and craftspeople fill the Festival Grounds with handmade goods, mountain art, and food vendors. A Maggie Valley tradition.</p>
-          <div class="event-when">October annually</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🎣</div>
-          <h3>Maggie Valley Fly Fishing Festival</h3>
-          <p>A gathering for fly fishing enthusiasts with guided trips, clinics, and gear expos. The mountain streams around Maggie Valley are some of the best in the Southeast.</p>
-          <div class="event-when">Annual spring event</div>
-        </div>
-
-      </div>
+<!-- ============ OUTDOOR ADVENTURES ============ -->
+<section class="py-20 bg-surface">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="mb-12">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">Outdoor Adventures</p>
+      <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink">Get Outside</h2>
     </div>
-  </section>
+    <div class="grid sm:grid-cols-2 gap-x-10 gap-y-8 reveal-group">
 
-  <!-- DINING & DRINKS -->
-  <section class="dining-section">
-    <p class="section-label">Dining &amp; Drinks</p>
-    <h2>Eat, Drink &amp; Explore</h2>
-    <p>Maggie Valley and the surrounding towns have everything from mountain diners to craft breweries. Stock up at local markets, browse artisan shops on Main Street, or drive 20 minutes to Waynesville for a full range of restaurants and boutiques.</p>
-    <div class="dining-boxes" style="grid-template-columns: repeat(3, 1fr);">
-
-      <div class="dining-box">
-        <div class="dining-box-icon">🛒</div>
-        <h4>Groceries</h4>
-        <p>Ingles Market is the closest full grocery store, about 10 minutes away in Waynesville.</p>
+      <div class="flex gap-4">
+        <div class="text-2xl">🥾</div>
+        <div>
+          <h3 class="font-display font-bold mb-1">Blue Ridge Parkway</h3>
+          <p class="text-sm text-muted leading-relaxed mb-1">One of America's most scenic drives runs just minutes from Pioneer Village. Dozens of overlooks and hiking trailheads. Best in fall for foliage.</p>
+          <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~10 minutes away</div>
+        </div>
       </div>
-
-      <div class="dining-box">
-        <div class="dining-box-icon">🍺</div>
-        <h4>Craft Beer</h4>
-        <p>Frog Level Brewing in Waynesville is a local favorite — outdoor seating with creek views. ~15 minutes away.</p>
+      <div class="flex gap-4">
+        <div class="text-2xl">🌊</div>
+        <div>
+          <h3 class="font-display font-bold mb-1">Tubing &amp; Whitewater</h3>
+          <p class="text-sm text-muted leading-relaxed mb-1">The Nantahala River and local creeks offer everything from gentle tubing to serious whitewater, with gear rentals for all skill levels.</p>
+          <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~45 minutes to Nantahala Gorge</div>
+        </div>
       </div>
-
-      <div class="dining-box">
-        <div class="dining-box-icon">🥞</div>
-        <h4>Local Dining</h4>
-        <p>Joey's Pancake House in Maggie Valley is a mountain breakfast institution. Don't skip it. ~5 minutes away.</p>
+      <div class="flex gap-4">
+        <div class="text-2xl">🏔️</div>
+        <div>
+          <h3 class="font-display font-bold mb-1">Great Smoky Mountains National Park</h3>
+          <p class="text-sm text-muted leading-relaxed mb-1">The most visited national park in America is right in your backyard. Hike to waterfalls, spot black bears, or drive through Cades Cove.</p>
+          <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~30 minutes to park entrance</div>
+        </div>
       </div>
-
-      <div class="dining-box">
-        <div class="dining-box-icon">🍖</div>
-        <h4>BBQ</h4>
-        <p>Fat Buddies Ribs &amp; BBQ in Waynesville is a local institution known for their famous Firehouse sauce. ~15 minutes away.</p>
+      <div class="flex gap-4">
+        <div class="text-2xl">🎿</div>
+        <div>
+          <h3 class="font-display font-bold mb-1">Cataloochee Ski Area</h3>
+          <p class="text-sm text-muted leading-relaxed mb-1">Western North Carolina's premier ski resort is minutes away. Skiing, snowboarding, and tubing in winter. Great for families.</p>
+          <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~15 minutes away</div>
+        </div>
       </div>
-
-      <div class="dining-box">
-        <div class="dining-box-icon">🍦</div>
-        <h4>Ice Cream &amp; Coffee</h4>
-        <p>Jack the Dipper in Waynesville serves hand-dipped ice cream in fresh waffle cones. A must-stop after a day of hiking. ~15 minutes away.</p>
+      <div class="flex gap-4">
+        <div class="text-2xl">💧</div>
+        <div>
+          <h3 class="font-display font-bold mb-1">Soco Falls</h3>
+          <p class="text-sm text-muted leading-relaxed mb-1">A short, easy trail leads to a stunning double waterfall right off the main road. One of the most accessible waterfalls in Western NC.</p>
+          <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~5 minutes away</div>
+        </div>
       </div>
-
-      <div class="dining-box">
-        <div class="dining-box-icon">🍷</div>
-        <h4>Wine</h4>
-        <p>B&amp;C Winery right on Soco Road in Maggie Valley offers tasty local wines at great prices. Walk-in friendly. ~5 minutes away.</p>
+      <div class="flex gap-4">
+        <div class="text-2xl">🦌</div>
+        <div>
+          <h3 class="font-display font-bold mb-1">Cataloochee Valley Elk Watching</h3>
+          <p class="text-sm text-muted leading-relaxed mb-1">Drive into Cataloochee Valley at dawn or dusk to see free-roaming elk in open fields — one of the only places in the eastern US.</p>
+          <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~30 minutes away</div>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="text-2xl">🌅</div>
+        <div>
+          <h3 class="font-display font-bold mb-1">Waterrock Knob</h3>
+          <p class="text-sm text-muted leading-relaxed mb-1">One of the most accessible high-elevation overlooks on the Blue Ridge Parkway. Stunning 360° views, especially at sunset.</p>
+          <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~20 minutes away</div>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="text-2xl">🚣</div>
+        <div>
+          <h3 class="font-display font-bold mb-1">Lake Junaluska</h3>
+          <p class="text-sm text-muted leading-relaxed mb-1">A scenic lake with a 2.8-mile walking trail around the shoreline. Canoe and kayak rentals available.</p>
+          <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~15 minutes away</div>
+        </div>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- DAY TRIPS -->
-  <section class="events-section">
-    <div class="events-section-inner">
-      <div class="section-header" style="margin-bottom:12px;">
-        <p class="section-label">Day Trips</p>
-        <h2>Worth the Drive</h2>
+<!-- ============ FAMILY FUN ============ -->
+<section class="py-20 bg-background">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">Family Fun</p>
+      <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink">Fun for All Ages</h2>
+      <p class="text-muted mt-3">You don't have to go far to have a great time.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-group">
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🛷</div>
+        <h3 class="font-display font-bold mb-2 text-base">Tube World</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">Snow tubing in winter, fun for all ages. Located at the base of Cataloochee Ski Area.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~15 minutes away</div>
       </div>
-      <p class="events-subtext">Pioneer Village makes a perfect home base. Here's where to go from here.</p>
-      <div class="events-grid events-grid--4col">
-
-        <div class="event-card">
-          <div class="event-icon">🏘️</div>
-          <h3>Waynesville, NC</h3>
-          <p>A charming mountain town with a walkable Main Street, art galleries, the Mast General Store, and some of the best dining in the region. Great for a half-day out.</p>
-          <div class="event-when">~15 minutes away</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🏛️</div>
-          <h3>Cherokee, NC</h3>
-          <p>Home to the Museum of the Cherokee People, Harrah's Cherokee Casino, and the entrance to Great Smoky Mountains National Park. Rich history and great food.</p>
-          <div class="event-when">~30 minutes away</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🏙️</div>
-          <h3>Asheville, NC</h3>
-          <p>One of the Southeast's most popular cities. World-class dining, the Biltmore Estate, craft breweries, live music, and the River Arts District. Worth a full day.</p>
-          <div class="event-when">~40 minutes away</div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-icon">🚂</div>
-          <h3>Bryson City, NC</h3>
-          <p>Catch the Great Smoky Mountains Railroad for a scenic train ride through the mountains. Also a great base for whitewater rafting on the Nantahala River.</p>
-          <div class="event-when">~45 minutes away</div>
-        </div>
-
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🏍️</div>
+        <h3 class="font-display font-bold mb-2 text-base">Wheels Through Time Museum</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">A 38,000 sq ft museum with over 350 rare American motorcycles and vintage cars.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~5 min · Apr–Nov</div>
+      </div>
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">⛳</div>
+        <h3 class="font-display font-bold mb-2 text-base">Maggie Valley Club Golf</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">An 18-hole championship course set against Smoky Mountain views.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~5 minutes away</div>
+      </div>
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🏌️</div>
+        <h3 class="font-display font-bold mb-2 text-base">Miniature Golf</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">Casual family fun right in Maggie Valley — a classic vacation activity for kids and adults alike.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~5 minutes away</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="cta-banner-bg" style="background-image: url('pv-main.jpg');"></div>
-    <div class="cta-banner-overlay"></div>
-    <div class="cta-banner-content">
-      <h2>Ready to Experience It Yourself?</h2>
-      <p>Book a cabin and use it as your base for everything the Smoky Mountains have to offer.</p>
-      <a href="https://www.vrbo.com/vacation-rentals/usa/nc/maggie-valley?utm_source=website&utm_medium=referral&utm_campaign=whats_local"
-         class="btn btn-gold" target="_blank" rel="noopener">Book a Cabin</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">Pioneer Village</div>
-        <div class="footer-brand-sub">Maggie Valley, NC</div>
-        <p class="footer-brand-desc">14 rustic cabins nestled along Campbell Creek in the heart of the Smoky Mountains. Open year-round. Pet friendly. Group bookings welcome.</p>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="https://www.facebook.com/PioneerVlg/" class="footer-fb-link" target="_blank" rel="noopener">
-            <span class="footer-fb-icon">f</span>
-            Follow us on Facebook
-          </a>
-          <a href="https://www.instagram.com/pioneervillagenc/" class="footer-fb-link" target="_blank" rel="noopener">
-            <span class="footer-fb-icon">📷</span>
-            Follow us on Instagram
-          </a>
-        </div>
+<!-- ============ DINING & DRINKS ============ -->
+<section class="py-20 bg-deep grid-bg">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-light mb-4">Dining &amp; Drinks</p>
+    <h2 class="font-display text-2xl sm:text-4xl font-bold text-white mb-4">Eat, Drink &amp; Explore</h2>
+    <p class="text-white/60 max-w-2xl mx-auto leading-relaxed mb-12">Maggie Valley and the surrounding towns have everything from mountain diners to craft breweries. Stock up at local markets, browse artisan shops on Main Street, or drive 20 minutes to Waynesville for a full range of restaurants and boutiques.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left reveal-group">
+      <div class="bg-white/5 rounded-2xl p-6">
+        <div class="text-2xl mb-3">🛒</div>
+        <h4 class="font-display font-bold text-white mb-1">Groceries</h4>
+        <p class="text-sm text-white/60 leading-relaxed">Ingles Market is the closest full grocery store, about 10 minutes away in Waynesville.</p>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="our-cabins.html">Our Cabins</a></li>
-          <li><a href="whats-local.html">What's Local</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="events.html">Area Events</a></li>
-          <li><a href="about-us.html#faq">FAQs</a></li>
-        </ul>
+      <div class="bg-white/5 rounded-2xl p-6">
+        <div class="text-2xl mb-3">🍺</div>
+        <h4 class="font-display font-bold text-white mb-1">Craft Beer</h4>
+        <p class="text-sm text-white/60 leading-relaxed">Frog Level Brewing in Waynesville is a local favorite — outdoor seating with creek views. ~15 minutes away.</p>
       </div>
-      <div class="footer-col">
-        <h4>Book</h4>
-        <ul>
-          <li><a href="our-cabins.html">Check Availability</a></li>
-          <li><a href="index.html#weekday">Weekday Deals</a></li>
-        </ul>
+      <div class="bg-white/5 rounded-2xl p-6">
+        <div class="text-2xl mb-3">🥞</div>
+        <h4 class="font-display font-bold text-white mb-1">Local Dining</h4>
+        <p class="text-sm text-white/60 leading-relaxed">Joey's Pancake House in Maggie Valley is a mountain breakfast institution. Don't skip it. ~5 minutes away.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl p-6">
+        <div class="text-2xl mb-3">🍖</div>
+        <h4 class="font-display font-bold text-white mb-1">BBQ</h4>
+        <p class="text-sm text-white/60 leading-relaxed">Fat Buddies Ribs &amp; BBQ in Waynesville is known for their famous Firehouse sauce. ~15 minutes away.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl p-6">
+        <div class="text-2xl mb-3">🍦</div>
+        <h4 class="font-display font-bold text-white mb-1">Ice Cream &amp; Coffee</h4>
+        <p class="text-sm text-white/60 leading-relaxed">Jack the Dipper in Waynesville serves hand-dipped ice cream in fresh waffle cones. ~15 minutes away.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl p-6">
+        <div class="text-2xl mb-3">🍷</div>
+        <h4 class="font-display font-bold text-white mb-1">Wine</h4>
+        <p class="text-sm text-white/60 leading-relaxed">B&amp;C Winery right on Soco Road in Maggie Valley offers tasty local wines at great prices. ~5 minutes away.</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Pioneer Village NC — All Rights Reserved.</span>
-      <span>219 Campbell Creek Rd, Maggie Valley, NC 28751</span>
-    </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open');
+<!-- ============ DAY TRIPS ============ -->
+<section class="py-20 bg-background">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary-dark mb-4">Day Trips</p>
+      <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink">Worth the Drive</h2>
+      <p class="text-muted mt-3">Pioneer Village makes a perfect home base. Here's where to go from here.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-group">
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🏘️</div>
+        <h3 class="font-display font-bold mb-2 text-base">Waynesville, NC</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">A charming mountain town with a walkable Main Street, art galleries, and some of the best dining in the region.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~15 minutes away</div>
+      </div>
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🏛️</div>
+        <h3 class="font-display font-bold mb-2 text-base">Cherokee, NC</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">Home to the Museum of the Cherokee People, Harrah's Cherokee Casino, and the entrance to GSM National Park.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~30 minutes away</div>
+      </div>
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🏙️</div>
+        <h3 class="font-display font-bold mb-2 text-base">Asheville, NC</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">World-class dining, the Biltmore Estate, craft breweries, and the River Arts District. Worth a full day.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~40 minutes away</div>
+      </div>
+      <div class="bg-surface rounded-2xl p-6 border border-divider">
+        <div class="text-2xl mb-3">🚂</div>
+        <h3 class="font-display font-bold mb-2 text-base">Bryson City, NC</h3>
+        <p class="text-sm text-muted leading-relaxed mb-3">Catch the Great Smoky Mountains Railroad, or use it as a base for whitewater rafting on the Nantahala River.</p>
+        <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-primary-dark">~45 minutes away</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="relative py-24 overflow-hidden">
+  <img src="pv-main.jpg" class="absolute inset-0 w-full h-full object-cover brightness-[0.35]" alt="" />
+  <div class="absolute inset-0 bg-deep/70"></div>
+  <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Ready to Experience It <span class="font-serif italic font-medium text-primary-light">Yourself?</span></h2>
+    <p class="text-white/70 mb-8">Book a cabin and use it as your base for everything the Smoky Mountains have to offer.</p>
+    <a href="https://www.vrbo.com/vacation-rentals/usa/nc/maggie-valley?utm_source=website&utm_medium=referral&utm_campaign=whats_local" target="_blank" rel="noopener" class="magnetic-btn inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg shadow-primary/30">Book a Cabin</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-deep border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="lg:col-span-2">
+      <div class="font-display font-bold text-xl text-white mb-2">Pioneer Village</div>
+      <div class="font-mono text-xs uppercase tracking-[0.15em] text-primary-light mb-4">Maggie Valley, NC</div>
+      <p class="text-white/50 text-sm leading-relaxed max-w-sm mb-5">Fourteen rustic cabins nestled along Campbell Creek in the heart of the Smoky Mountains. Open year-round. Pet friendly. Group bookings welcome.</p>
+      <div class="flex gap-3">
+        <a href="https://www.facebook.com/PioneerVlg/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 lift-on-hover"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://www.instagram.com/pioneervillagenc/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 lift-on-hover"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Navigate</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="index.html" class="lift-on-hover">Home</a></li>
+        <li><a href="our-cabins.html" class="lift-on-hover">Our Cabins</a></li>
+        <li><a href="whats-local.html" class="lift-on-hover">What's Local</a></li>
+        <li><a href="about-us.html" class="lift-on-hover">About Us</a></li>
+        <li><a href="events.html" class="lift-on-hover">Area Events</a></li>
+        <li><a href="about-us.html#faq" class="lift-on-hover">FAQs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Book</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="our-cabins.html#cabin-grid" class="lift-on-hover">Check Availability</a></li>
+        <li><a href="about-us.html#contact" class="lift-on-hover">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-6 px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row gap-2 justify-between text-white/40 text-xs font-mono">
+    <span>© 2026 Pioneer Village NC — All Rights Reserved.</span>
+    <span>219 Campbell Creek Rd, Maggie Valley, NC 28751</span>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+
+<script>
+  // Fire conversion events when a visitor clicks any VRBO or Airbnb booking link
+  document.querySelectorAll('a[href*="vrbo.com"], a[href*="airbnb.com"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
+      if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
     });
-  </script>
-
-  <script>
-    // Fire conversion events when a visitor clicks any VRBO or Airbnb booking link
-    document.querySelectorAll('a[href*="vrbo.com"], a[href*="airbnb.com"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
-        if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18100347740/d_Q2CKPVgbQcENzG9bZD'});
-      });
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>
